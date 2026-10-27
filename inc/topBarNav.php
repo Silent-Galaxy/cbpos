@@ -1,5 +1,5 @@
 <?php
-//  ضمیمه فایل استایل اختصاصی
+// ضمیمه فایل استایل اختصاصی
 echo '<link rel="stylesheet" href="SilentGalaxy.css">';
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
