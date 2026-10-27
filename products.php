@@ -1,176 +1,204 @@
 <?php
-/**
- * بخش نمایش و جستجوی محصولات (Products Catalog)
- * اصلاح‌شده جهت رفع کامل آسیب‌پذیری‌های CVE-2022-25396 و CVE-2022-25395
- * منطبق با استانداردهای امنیتی PHP 8.x و OWASP
- */
-
-// دریافت و ضدعفونی‌سازی ورودی جستجو
-$search = isset($_GET['search']) ? trim($_GET['search']) : '';
-$category_id = isset($_GET['c']) ? filter_var($_GET['c'], FILTER_VALIDATE_INT) : null;
-$brand_id = isset($_GET['b']) ? filter_var($_GET['b'], FILTER_VALIDATE_INT) : null;
-
-// آماده‌سازی عنوان صفحه و برچسب فیلتر
-$page_title = "لیست محصولات";
-if (!empty($search)) {
-    $page_title = "نتایج جستجو برای: \"" . htmlspecialchars($search, ENT_QUOTES, 'UTF-8') . "\"";
-}
+echo '<style>';
+// شامل شدن فایل SilentGalaxy.css
+include '/SilentGalaxy.css';
+echo '</style>';
 ?>
+<?php
 
-<div class="content py-5">
-    <div class="container">
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-light p-3 rounded">
-                        <li class="breadcrumb-item"><a href="./">صفحه اصلی</a></li>
-                        <li class="breadcrumb-item active" aria-current="page"><?= htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8') ?></li>
-                    </ol>
-                </nav>
-            </div>
+$viewport = '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+
+echo $viewport;
+
+?>
+<?php
+$title = "";
+$sub_title = "";
+if(isset($_GET['c']) && isset($_GET['s'])){
+    $cat_qry = $conn->query("SELECT * FROM categories where md5(id) = '{$_GET['c']}'");
+    if($cat_qry->num_rows > 0){
+        $result =$cat_qry->fetch_assoc();
+        $title = $result['category'];
+        $cat_description = $result['description'];
+    }
+ $sub_cat_qry = $conn->query("SELECT * FROM sub_categories where md5(id) = '{$_GET['s']}'");
+    if($sub_cat_qry->num_rows > 0){
+        $result =$sub_cat_qry->fetch_assoc();
+        $sub_title = $result['sub_category'];
+        $sub_cat_description = $result['description'];
+    }
+}
+elseif(isset($_GET['c'])){
+    $cat_qry = $conn->query("SELECT * FROM categories where md5(id) = '{$_GET['c']}'");
+    if($cat_qry->num_rows > 0){
+        $result =$cat_qry->fetch_assoc();
+        $title = $result['category'];
+        $cat_description = $result['description'];
+    }
+}
+elseif(isset($_GET['s'])){
+    $sub_cat_qry = $conn->query("SELECT * FROM sub_categories where md5(id) = '{$_GET['s']}'");
+    if($sub_cat_qry->num_rows > 0){
+        $result =$sub_cat_qry->fetch_assoc();
+        $sub_title = $result['sub_category'];
+        $sub_cat_description = $result['description'];
+    }
+}
+$brands = isset($_GET['b']) ? json_decode(urldecode($_GET['b'])) : array();
+?>
+<!-- Header-->
+<header class="bg-dark py-5" id="main-header">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder"><?php echo $title ?></h1>
+            <p class="lead fw-normal text-white-50 mb-0"><?php echo $sub_title ?></p>
         </div>
-
+    </div>
+</header>
+<!-- Section-->
+<section class="py-5">
+    <div class="container">
         <div class="row">
-            <!-- ستون سایدبار فیلتر دسته‌بندی و برند -->
-            <div class="col-lg-3 col-md-4 mb-4">
-                <div class="card shadow-sm border-0 mb-3">
-                    <div class="card-header bg-primary text-white">
-                        <h6 class="mb-0"><i class="fa fa-list mr-2"></i> دسته‌بندی‌ها</h6>
-                    </div>
-                    <div class="list-group list-group-flush">
-                        <a href="./?p=products" class="list-group-item list-group-item-action <?= empty($category_id) ? 'active' : '' ?>">
-                            همه محصولات
-                        </a>
-                        <?php
-                        $cat_stmt = $conn->prepare("SELECT id, category FROM `category_list` WHERE `status` = 1 AND `delete_flag` = 0 ORDER BY `category` ASC");
-                        if ($cat_stmt) {
-                            $cat_stmt->execute();
-                            $cats = $cat_stmt->get_result();
-                            while ($crow = $cats->fetch_assoc()):
-                        ?>
-                            <a href="./?p=products&c=<?= (int)$crow['id'] ?>" 
-                               class="list-group-item list-group-item-action <?= ($category_id == $crow['id']) ? 'active' : '' ?>">
-                                <?= htmlspecialchars($crow['category'], ENT_QUOTES, 'UTF-8') ?>
-                            </a>
-                        <?php 
-                            endwhile;
-                            $cat_stmt->close();
-                        }
-                        ?>
-                    </div>
-                </div>
+            <div class="col-md-3 border-right mb-2 pb-3">
+                <h4><b>Brands</b></h4>
+                <ul class="list-group">
+                    <a href="" class="list-group-item list-group-item-action">
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="brandAll" >
+                            <label for="brandAll">
+                                All
+                            </label>
+                        </div>
+                    </a>
+                    <?php 
+                    $qry = $conn->query("SELECT * FROM brands where status =1 order by name asc");
+                    while($row=$qry->fetch_assoc()):
+                    ?>
+                    <li class="list-group-item list-group-item-action">
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="brand-item-<?php echo $row['id'] ?>" <?php echo in_array($row['id'],$brands) ? "checked" : "" ?> class="brand-item" value="<?php echo $row['id'] ?>">
+                            <label for="brand-item-<?php echo $row['id'] ?>">
+                                    <?php echo $row['name'] ?>
+                            </label>
+                        </div>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
             </div>
+            <div class="col-md-9">
+                <div class="container-fluid p-0">
+                    <?php if(isset($_GET['search'])): ?>
+                        <h4 class="text-center py-5"><b>Search Results for '<?php echo $_GET['search'] ?>'</b></h4>
+                    <?php endif; ?>
+                <div class="row gx-2 gx-lg-2 row-cols-1 row-cols-md-3 row-cols-xl-4">
+                        
+                        <?php 
+                            $whereData = "";
+                            if(isset($_GET['search']))
+                                $whereData = " and (p.name LIKE '%{$_GET['search']}%' or b.name LIKE '%{$_GET['search']}%' or p.specs LIKE '%{$_GET['search']}%')";
+                            elseif(isset($_GET['c']) && isset($_GET['s']))
+                                $whereData = " and (md5(category_id) = '{$_GET['c']}' and md5(sub_category_id) = '{$_GET['s']}')";
+                            elseif(isset($_GET['c']) && !isset($_GET['s']))
+                                $whereData = " and md5(category_id) = '{$_GET['c']}' ";
+                            elseif(isset($_GET['s']) && !isset($_GET['c']))
+                                $whereData = " and md5(sub_category_id) = '{$_GET['s']}' ";
+                            $bwhere = "";
+                            if(count($brands)>0)
+                                $bwhere = " and p.brand_id in (".implode(",",$brands).") " ;
+                            $products = $conn->query("SELECT p.*,b.name as bname, c.category FROM `products` p inner join brands b on p.brand_id = b.id inner join categories c on p.category_id = c.id where p.status = 1 {$whereData} {$bwhere} order by rand() ");
+                            while($row = $products->fetch_assoc()):
+                                $upload_path = base_app.'/uploads/product_'.$row['id'];
+                                $img = "";
+                                if(is_dir($upload_path)){
+                                    $fileO = scandir($upload_path);
+                                    if(isset($fileO[2]))
+                                        $img = "uploads/product_".$row['id']."/".$fileO[2];
+                                    // var_dump($fileO);
+                                }
+                                foreach($row as $k=> $v){
+                                    $row[$k] = trim(stripslashes($v));
+                                }
+                                $inventory = $conn->query("SELECT distinct(`price`) FROM inventory where product_id = ".$row['id']." order by `price` asc");
+                                $inv = array();
+                                while($ir = $inventory->fetch_assoc()){
+                                    $inv[] = format_num($ir['price']);
+                                }
+                                $price = '';
+                                if(isset($inv[0]))
+                                $price .= $inv[0];
+                                if(count($inv) > 1){
+                                $price .= " ~ ".$inv[count($inv) - 1];
 
-            <!-- ستون نمایش محصولات -->
-            <div class="col-lg-9 col-md-8">
-                <?php if (!empty($search)): ?>
-                    <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
-                        <i class="fa fa-info-circle mr-2"></i>
-                        <div>
-                            نمایش نتایج منطبق با عبارت: 
-                            <strong><?= htmlspecialchars($search, ENT_QUOTES, 'UTF-8') ?></strong>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                    <?php
-                    // پیاده‌سازی ایمن کوئری داینامیک با استفاده از Prepared Statements
-                    $query = "SELECT p.*, b.name as brand_name, c.category 
-                              FROM `product_list` p
-                              INNER JOIN `brand_list` b ON p.brand_id = b.id
-                              INNER JOIN `category_list` c ON p.category_id = c.id
-                              WHERE p.`status` = 1 AND p.`delete_flag` = 0";
-
-                    $params = [];
-                    $types = "";
-
-                    if (!empty($search)) {
-                        $query .= " AND (p.`name` LIKE ? OR p.`description` LIKE ? OR b.`name` LIKE ?)";
-                        $searchTerm = "%{$search}%";
-                        $params[] = $searchTerm;
-                        $params[] = $searchTerm;
-                        $params[] = $searchTerm;
-                        $types .= "sss";
-                    }
-
-                    if (!empty($category_id)) {
-                        $query .= " AND p.`category_id` = ?";
-                        $params[] = $category_id;
-                        $types .= "i";
-                    }
-
-                    if (!empty($brand_id)) {
-                        $query .= " AND p.`brand_id` = ?";
-                        $params[] = $brand_id;
-                        $types .= "i";
-                    }
-
-                    $query .= " ORDER BY p.`name` ASC";
-
-                    $stmt = $conn->prepare($query);
-
-                    if ($stmt) {
-                        if (!empty($params)) {
-                            $stmt->bind_param($types, ...$params);
-                        }
-                        $stmt->execute();
-                        $products = $stmt->get_result();
-
-                        if ($products->num_rows > 0):
-                            while ($row = $products->fetch_assoc()):
-                                // محاسبه امن تصاویر و آدرس پیش‌فرض
-                                $img_path = "uploads/products/" . $row['id'] . ".png";
-                                $thumbnail = is_file(base_app . $img_path) ? base_url . $img_path : base_url . "dist/img/no-image-available.png";
-                    ?>
-                        <div class="col mb-4">
-                            <div class="card h-100 shadow-sm product-card border-0">
-                                <div class="position-relative overflow-hidden" style="height: 200px;">
-                                    <img src="<?= htmlspecialchars($thumbnail, ENT_QUOTES, 'UTF-8') ?>" 
-                                         class="card-img-top w-100 h-100" 
-                                         style="object-fit: cover;" 
-                                         alt="<?= htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8') ?>">
+                                }
+                        ?>
+                        <div class="col-md-12 mb-5">
+                            <a class="card product-item text-reset text-decoration-none" href=".?p=view_product&id=<?php echo md5($row['id']) ?>">
+                                <!-- Product image-->
+                                <div class="overflow-hidden shadow product-holder">
+                                    <img class="card-img-top w-100 product-cover" src="<?php echo validate_image($img) ?>" alt="..." />
                                 </div>
-                                <div class="card-body d-flex flex-column">
-                                    <small class="text-muted mb-1"><?= htmlspecialchars($row['brand_name'], ENT_QUOTES, 'UTF-8') ?></small>
-                                    <h5 class="card-title text-truncate" title="<?= htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8') ?>">
-                                        <?= htmlspecialchars($row['name'], ENT_QUOTES, 'UTF-8') ?>
-                                    </h5>
-                                    <p class="card-text text-muted small flex-grow-1">
-                                        <?= htmlspecialchars(mb_strimwidth(strip_tags(html_entity_decode($row['description'] ?? '')), 0, 75, "..."), ENT_QUOTES, 'UTF-8') ?>
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
-                                        <span class="text-primary font-weight-bold">
-                                            <?= number_format((float)($row['price'] ?? 0), 2) ?> تومان
-                                        </span>
-                                        <a href="./?p=view_product&id=<?= (int)$row['id'] ?>" class="btn btn-sm btn-outline-primary">
-                                            مشاهده کالا
-                                        </a>
+                                <!-- Product details-->
+                                <div class="card-body p-4">
+                                    <div class="">
+                                        <!-- Product name-->
+                                        <h5 class="fw-bolder"><?php echo $row['name'] ?></h5>
+                                        <!-- Product price-->
+                                        <span><b>Price: </b><?php echo $price ?></span>
                                     </div>
+                                    <p class="m-0"><small>Brand: <?php echo $row['bname'] ?></small></p>
+                                    <p class="m-0"><small>Category: <?php echo $row['category'] ?></small></p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    <?php 
-                            endwhile;
-                        else:
-                    ?>
-                        <div class="col-12 py-5 text-center">
-                            <div class="text-muted">
-                                <i class="fa fa-box-open fa-3x mb-3 text-secondary"></i>
-                                <h5>هیچ کالایی یافت نشد.</h5>
-                                <p class="text-secondary small">لطفاً عبارت دیگری را جستجو کرده یا فیلترها را حذف کنید.</p>
-                                <a href="./?p=products" class="btn btn-sm btn-secondary mt-2">نمایش همه محصولات</a>
-                            </div>
-                        </div>
-                    <?php 
-                        endif;
-                        $stmt->close();
-                    } else {
-                        echo '<div class="col-12 alert alert-danger">خطا در بارگذاری اطلاعات دیتابیس رخ داده است.</div>';
-                    }
-                    ?>
+                        <?php endwhile; ?>
+                        <?php 
+                            if($products->num_rows <= 0){
+                                echo "<h4 class='text-center'><b>No Product Listed.</b></h4>";
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<script>
+    function _filter(){
+        var brands = []
+            $('.brand-item:checked').each(function(){
+                brands.push($(this).val())
+            })
+        _b = JSON.stringify(brands)
+        var checked = $('.brand-item:checked').length
+        var total = $('.brand-item').length
+        if(checked == total)
+            location.href="./?p=products<?= isset($_GET['c']) ? "&c=".$_GET['c'] : "" ?>";
+        else
+            location.href="./?p=products<?= isset($_GET['c']) ? "&c=".$_GET['c'] : "" ?>&b="+encodeURI(_b);
+    }
+    function check_filter(){
+        var checked = $('.brand-item:checked').length
+        var total = $('.brand-item').length
+        if(checked == total){
+            $('#brandAll').attr('checked',true)
+        }else{
+            $('#brandAll').attr('checked',false)
+        }
+        if('<?php echo isset($_GET['b']) ?>' == '')
+            $('#brandAll,.brand-item').attr('checked',true)
+    }
+    $(function(){
+        check_filter()
+        $('#brandAll').change(function(){
+            if($(this).is(':checked') == true){
+                $('.brand-item').attr('checked',true)
+            }else{
+                $('.brand-item').attr('checked',false)
+            }
+            _filter()
+        })
+        $('.brand-item').change(function(){
+            _filter()
+        })
+    })
+</script>
