@@ -1,0 +1,665 @@
+/* ==========================================================================
+   SilentGalaxy - Complete Gaming Dark Theme & UI System
+   ========================================================================== */
+
+/* 1. فونت استاندارد فارسی وزیرمتن */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+
+:root {
+    --sg-bg-main: #0c0d14;
+    --sg-bg-surface: #121524;
+    --sg-bg-card: #15182a;
+    --sg-bg-card-hover: #1a1e34;
+    
+    --sg-glow-purple: #7928ca;
+    --sg-glow-blue: #0070f3;
+    --sg-glow-cyan: #00d2ff;
+    --sg-glow-pink: #ff0080;
+    
+    --sg-text: #f1f5f9;
+    --sg-text-muted: #94a3b8;
+    --sg-text-dim: #64748b;
+    
+    --sg-border: rgba(255, 255, 255, 0.08);
+    --sg-border-hover: rgba(121, 40, 202, 0.45);
+    
+    --sg-font: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   2. تنظیمات پایه صفحه و اسکرول‌بار
+-------------------------------------------------------------------------- */
+html, body {
+    background-color: var(--sg-bg-main) !important;
+    color: var(--sg-text) !important;
+    font-family: var(--sg-font) !important;
+    direction: rtl;
+    text-align: right;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* اسکرول‌بار سفارشی گیمینگ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #090a10;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e2238;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sg-glow-purple);
+}
+
+/* کانتینر مرکزی استاندارد برای جلوگیری از کشیدگی در مانیتورهای عریض */
+.sg-main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   3. هدر و منوبار شیشه‌ای (Navbar)
+-------------------------------------------------------------------------- */
+.sg-navbar {
+    background: rgba(12, 13, 20, 0.92) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--sg-border);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.sg-navbar .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff !important;
+}
+
+.sg-navbar .navbar-brand img {
+    border-radius: 8px;
+    box-shadow: 0 0 14px rgba(121, 40, 202, 0.4);
+}
+
+.nav-link-custom {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+    margin: 0 2px;
+}
+
+.nav-link-custom:hover {
+    color: #fff !important;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link-custom.active {
+    color: #fff !important;
+    background: rgba(121, 40, 202, 0.2);
+    border: 1px solid rgba(121, 40, 202, 0.4);
+}
+
+/* باکس جستجو */
+.sg-search-box {
+    position: relative;
+    width: 260px;
+    transition: width 0.3s ease;
+}
+
+@media (min-width: 992px) {
+    .sg-search-box:focus-within {
+        width: 320px;
+    }
+}
+
+.sg-search-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--sg-border) !important;
+    color: #fff !important;
+    border-radius: 25px !important;
+    padding: 7px 18px 7px 40px !important;
+    font-size: 0.88rem !important;
+}
+
+.sg-search-input:focus {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--sg-glow-blue) !important;
+    box-shadow: 0 0 15px rgba(0, 112, 243, 0.3) !important;
+}
+
+.sg-search-btn {
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--sg-text-muted);
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.sg-search-btn:hover {
+    color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   4. دکمه‌های گیمینگ، اکشن‌ها و بج‌ها
+-------------------------------------------------------------------------- */
+.btn-sg-glow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--sg-glow-purple), var(--sg-glow-blue));
+    border: none;
+    border-radius: 10px;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px 0 rgba(121, 40, 202, 0.39);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-sg-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(121, 40, 202, 0.6);
+    color: #fff !important;
+}
+
+.btn-sg-cart {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--sg-border);
+    color: #e2e8f0 !important;
+    padding: 7px 15px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+    transition: all 0.25s ease;
+}
+
+.btn-sg-cart:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+}
+
+.badge-cart-sg {
+    background: var(--sg-glow-pink);
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 7px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   5. اسلایدر و بنر گیمینگ
+-------------------------------------------------------------------------- */
+.sg-slider-wrap {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--sg-border);
+    background: radial-gradient(circle at center, #1b1e33 0%, #0a0b12 100%);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.7);
+}
+
+.sg-slider-wrap .carousel-inner {
+    height: 280px !important;
+}
+
+.sg-slider-wrap .carousel-item img {
+    height: 280px !important;
+    object-fit: contain !important;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   6. ویژگی‌ها و المان‌های اعتماد (Features Bar)
+-------------------------------------------------------------------------- */
+.sg-features-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.sg-feature-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+}
+
+.sg-feature-box:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--sg-border-hover);
+    transform: translateY(-2px);
+}
+
+.sg-feature-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(121, 40, 202, 0.2), rgba(0, 112, 243, 0.2));
+    border: 1px solid rgba(121, 40, 202, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sg-glow-cyan);
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.sg-feature-text h6 {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.sg-feature-text small {
+    color: var(--sg-text-muted);
+    font-size: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. سایدبار فیلترها (Sidebar)
+-------------------------------------------------------------------------- */
+.sg-sidebar {
+    background: var(--sg-bg-surface);
+    border: 1px solid var(--sg-border);
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.sg-sidebar-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #f8fafc;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--sg-border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sg-filter-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    color: var(--sg-text-muted);
+    font-size: 0.88rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.sg-filter-item:hover {
+    border-color: rgba(121, 40, 202, 0.3);
+    background: rgba(121, 40, 202, 0.08);
+    color: #fff;
+}
+
+.sg-filter-item input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--sg-glow-purple);
+    cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   8. کارت‌های محصول فروشگاه (Product Cards)
+-------------------------------------------------------------------------- */
+.sg-card {
+    background: var(--sg-bg-card) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sg-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sg-border-hover) !important;
+    box-shadow: 0 12px 28px -5px rgba(0, 0, 0, 0.7), 0 0 20px rgba(121, 40, 202, 0.2);
+}
+
+.sg-badge-fast {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.sg-card-img-holder {
+    width: 100%;
+    height: 190px;
+    background: #090a10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.sg-card-img-holder img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.sg-card:hover .sg-card-img-holder img {
+    transform: scale(1.08);
+}
+
+.sg-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.sg-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.sg-card-badge {
+    font-size: 0.72rem;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--sg-text-muted);
+}
+
+.sg-card-title {
+    color: #f8fafc;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+    height: 42px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 12px;
+}
+
+.sg-price-box {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.sg-price-val {
+    color: var(--sg-glow-cyan);
+    font-weight: 800;
+    font-size: 1.05rem;
+}
+
+.sg-price-unit {
+    color: var(--sg-text-dim);
+    font-size: 0.75rem;
+    margin-right: 4px;
+}
+
+.sg-card-btn {
+    margin-top: 12px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 7px;
+    border-radius: 9px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+}
+
+.sg-card:hover .sg-card-btn {
+    background: linear-gradient(135deg, var(--sg-glow-purple), var(--sg-glow-blue));
+    border-color: transparent;
+    color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   9. مودال‌ها و فرم‌های ورود / ثبت‌نام دارک (Dark Modals & Forms)
+-------------------------------------------------------------------------- */
+.modal-content {
+    background: #111422 !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85) !important;
+    color: #f1f5f9 !important;
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--sg-border) !important;
+    padding: 16px 22px !important;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-title {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.modal-header .close {
+    color: #94a3b8 !important;
+    opacity: 0.8;
+    text-shadow: none !important;
+    font-size: 1.5rem;
+}
+
+.modal-header .close:hover {
+    color: var(--sg-glow-pink) !important;
+}
+
+.modal-body {
+    padding: 24px !important;
+}
+
+/* تبدیل فیلدهای سفید ورود و ثبت‌نام به فیلدهای تیره مدرن */
+.modal-body input.form-control,
+.modal-body textarea.form-control,
+.modal-body select.form-control,
+form input.form-control,
+form textarea.form-control,
+form select.form-control {
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+    font-size: 0.88rem !important;
+    padding: 10px 14px !important;
+}
+
+.modal-body input.form-control:focus,
+.modal-body textarea.form-control:focus,
+.modal-body select.form-control:focus,
+form input.form-control:focus,
+form textarea.form-control:focus,
+form select.form-control:focus {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: var(--sg-glow-blue) !important;
+    box-shadow: 0 0 14px rgba(0, 112, 243, 0.35) !important;
+    color: #fff !important;
+}
+
+.modal-body label,
+form label {
+    color: #cbd5e1 !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 6px !important;
+    font-weight: 500;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--sg-border) !important;
+    padding: 14px 24px !important;
+}
+
+/* --------------------------------------------------------------------------
+   10. فوتر و بج‌های ایموجی (Footer & Trust Badges)
+-------------------------------------------------------------------------- */
+.sg-footer {
+    background: #080910 !important;
+    border-top: 1px solid var(--sg-border);
+    padding: 40px 0 25px 0;
+    margin-top: 60px;
+    color: var(--sg-text-muted);
+}
+
+.sg-footer-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.sg-badge-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 12px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 125px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+
+.sg-badge-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--sg-border-hover);
+    transform: translateY(-3px);
+}
+
+.sg-badge-emoji {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+}
+
+.sg-badge-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin: 0;
+}
+
+.sg-badge-sub {
+    font-size: 0.7rem;
+    color: var(--sg-text-dim);
+    margin-top: 2px;
+}
+
+.sg-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.sg-footer-links a {
+    color: var(--sg-text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.sg-footer-links a:hover {
+    color: var(--sg-glow-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   11. خنثی‌سازی استایل‌های پیش‌فرض AdminLTE و بوت‌استرپ
+-------------------------------------------------------------------------- */
+.bg-gradient-pink,
+.bg-pink {
+    background: var(--sg-bg-surface) !important;
+}
+
+.card {
+    background-color: var(--sg-bg-card) !important;
+    border-color: var(--sg-border) !important;
+    color: var(--sg-text) !important;
+}
+
+.card-body {
+    color: var(--sg-text) !important;
+}
+
+.list-group-item {
+    background-color: transparent !important;
+    border-color: var(--sg-border) !important;
+    color: var(--sg-text-muted) !important;
+}
+
+.border-right {
+    border-right-color: var(--sg-border) !important;
+}

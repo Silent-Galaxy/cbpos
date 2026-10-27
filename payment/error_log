@@ -1,0 +1,43 @@
+[02-Apr-2024 03:21:02 UTC] PHP Warning:  Undefined variable $conn in /home/silentga/public_html/shop/cbpos/checkout.php on line 4
+[02-Apr-2024 03:21:02 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/silentga/public_html/shop/cbpos/checkout.php:4
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/payment/index.php(2): require_once()
+#1 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/checkout.php on line 4
+[02-Apr-2024 03:21:04 UTC] PHP Warning:  Undefined variable $conn in /home/silentga/public_html/shop/cbpos/checkout.php on line 4
+[02-Apr-2024 03:21:04 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/silentga/public_html/shop/cbpos/checkout.php:4
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/payment/index.php(2): require_once()
+#1 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/checkout.php on line 4
+[02-Apr-2024 03:21:16 UTC] PHP Warning:  Undefined variable $conn in /home/silentga/public_html/shop/cbpos/checkout.php on line 4
+[02-Apr-2024 03:21:16 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/silentga/public_html/shop/cbpos/checkout.php:4
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/payment/index.php(2): require_once()
+#1 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/checkout.php on line 4
+[02-Apr-2024 03:28:09 UTC] PHP Warning:  require_once(/payment/index.php): Failed to open stream: No such file or directory in /home/silentga/public_html/shop/cbpos/checkout.php on line 3
+[02-Apr-2024 03:28:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/payment/index.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/silentga/public_html/shop/cbpos/checkout.php:3
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/payment/index.php(1): require_once()
+#1 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/checkout.php on line 3
+[02-Apr-2024 05:17:04 UTC] PHP Warning:  Undefined array key "Amount" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 5
+[02-Apr-2024 05:17:04 UTC] PHP Warning:  Undefined array key "Authority" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 6
+[02-Apr-2024 05:17:04 UTC] PHP Warning:  Undefined array key "Status" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 7
+[02-Apr-2024 05:17:04 UTC] PHP Warning:  Undefined array key "id" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 8
+[02-Apr-2024 05:19:59 UTC] PHP Warning:  Undefined array key "Amount" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 5
+[02-Apr-2024 05:19:59 UTC] PHP Warning:  Undefined array key "Authority" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 6
+[02-Apr-2024 05:19:59 UTC] PHP Warning:  Undefined array key "Status" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 7
+[02-Apr-2024 05:19:59 UTC] PHP Warning:  Undefined array key "id" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 8
+[02-Apr-2024 05:20:13 UTC] PHP Warning:  Undefined array key "Amount" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 5
+[02-Apr-2024 05:20:13 UTC] PHP Warning:  Undefined array key "Authority" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 6
+[02-Apr-2024 05:20:13 UTC] PHP Warning:  Undefined array key "Status" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 7
+[02-Apr-2024 05:20:13 UTC] PHP Warning:  Undefined array key "id" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 8
+[02-Apr-2024 05:33:48 UTC] PHP Warning:  Undefined array key "Amount" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 5
+[02-Apr-2024 05:33:48 UTC] PHP Warning:  Undefined array key "Authority" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 6
+[02-Apr-2024 05:33:48 UTC] PHP Warning:  Undefined array key "Status" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 7
+[02-Apr-2024 05:33:48 UTC] PHP Warning:  Undefined array key "id" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 8
+[02-Apr-2024 05:35:16 UTC] PHP Warning:  Undefined array key "Amount" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 4
+[02-Apr-2024 05:35:16 UTC] PHP Warning:  Undefined array key "Authority" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 5
+[02-Apr-2024 05:35:16 UTC] PHP Warning:  Undefined array key "Status" in /home/silentga/public_html/shop/cbpos/payment/callback.php on line 6

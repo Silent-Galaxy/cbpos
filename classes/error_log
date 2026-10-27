@@ -1,0 +1,211 @@
+[24-Mar-2024 11:19:26 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 11:19:26 Asia/Manila] PHP Warning:  Undefined variable $uploadfile in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 59
+[24-Mar-2024 11:19:26 Asia/Manila] PHP Warning:  Undefined variable $uploadfile in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 62
+[24-Mar-2024 11:19:26 Asia/Manila] PHP Fatal error:  Uncaught TypeError: imagescale(): Argument #1 ($image) must be of type GdImage, null given in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php:62
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php(62): imagescale()
+#1 /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php(233): SystemSettings->update_settings_info()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 62
+[24-Mar-2024 12:25:38 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 12:25:38 Asia/Manila] PHP Warning:  Undefined variable $uploadfile in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 59
+[24-Mar-2024 12:25:38 Asia/Manila] PHP Warning:  Undefined variable $uploadfile in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 62
+[24-Mar-2024 12:25:38 Asia/Manila] PHP Fatal error:  Uncaught TypeError: imagescale(): Argument #1 ($image) must be of type GdImage, null given in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php:62
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php(62): imagescale()
+#1 /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php(233): SystemSettings->update_settings_info()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 62
+[24-Mar-2024 13:23:36 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 13:25:15 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 13:27:57 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 13:32:28 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 13:33:11 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 13:35:36 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:04:04 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:06:10 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:17:25 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:17:46 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:19:12 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:39:25 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`cart`, CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:391
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(391): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(672): Master->add_to_cart()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 391
+[24-Mar-2024 14:40:00 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`cart`, CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:391
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(391): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(672): Master->add_to_cart()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 391
+[24-Mar-2024 14:52:04 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:53:06 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:54:06 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:54:19 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:55:04 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:56:49 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:57:32 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:57:52 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:58:24 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:58:33 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:58:55 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 14:59:15 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 15:16:35 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 15:17:00 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 15:17:29 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 15:18:14 Asia/Manila] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[24-Mar-2024 16:31:10 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:31:36 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:31:48 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:31:51 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:31:51 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:32:04 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:58:50 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:59:19 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[24-Mar-2024 16:59:35 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[25-Mar-2024 07:05:57 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[25-Mar-2024 07:06:08 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[25-Mar-2024 07:06:18 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[25-Mar-2024 07:08:35 Asia/Manila] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`order_list`, CONSTRAINT `order_list_ibfk_2` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:497
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(497): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(687): Master->place_order()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 497
+[30-Mar-2024 18:31:39 Asia/Tehran] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`cart`, CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:391
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(391): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(672): Master->add_to_cart()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 391
+[30-Mar-2024 18:31:55 Asia/Tehran] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`cart`, CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:391
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(391): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(672): Master->add_to_cart()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 391
+[02-Apr-2024 00:40:41 Asia/Tehran] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`silentga_full_shop`.`cart`, CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE) in /home/silentga/public_html/shop/cbpos/classes/Master.php:391
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(391): mysqli->query()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(672): Master->add_to_cart()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 391
+[04-Apr-2024 08:11:49 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 65
+[04-Apr-2024 08:11:49 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpAHLW5b&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 65
+[04-Apr-2024 08:11:49 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: imagescale(): Argument #1 ($image) must be of type GdImage, false given in /home/silentga/public_html/shop/cbpos/classes/Master.php:71
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(71): imagescale()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(638): Master->save_brand()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 71
+[04-Apr-2024 08:20:14 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 65
+[04-Apr-2024 08:20:14 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpnCVfOY&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 65
+[04-Apr-2024 08:20:14 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: imagescale(): Argument #1 ($image) must be of type GdImage, false given in /home/silentga/public_html/shop/cbpos/classes/Master.php:71
+Stack trace:
+#0 /home/silentga/public_html/shop/cbpos/classes/Master.php(71): imagescale()
+#1 /home/silentga/public_html/shop/cbpos/classes/Master.php(638): Master->save_brand()
+#2 {main}
+  thrown in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 71
+[04-Apr-2024 08:30:56 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:30:56 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpZ5g3cM&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:36:50 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:36:50 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpGYRL3h&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:37:16 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:37:16 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phplZ2GvP&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:37:49 Asia/Tehran] PHP Warning:  imagecreatefrompng(): &quot;/tmp/phpzvlK6s&quot; is not a valid PNG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 207
+[04-Apr-2024 08:39:11 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:39:11 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpb1IJFE&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:39:25 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:39:25 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phphhT5Ny&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:39:56 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:39:56 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpN8xcWw&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:10 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:10 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpo6lvBf&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:15 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:15 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpbUKEnl&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:17 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:17 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpkzxdRx&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:18 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:40:18 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phphGuDlN&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:42:49 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:42:49 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpf9Uqw0&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 205
+[04-Apr-2024 08:43:29 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:43:29 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 126
+[04-Apr-2024 08:43:29 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/phpzao08Y&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 126
+[04-Apr-2024 08:43:57 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:43:57 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): gd-jpeg: JPEG library reports unrecoverable error: Not a JPEG file: starts with 0x52 0x49 in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 126
+[04-Apr-2024 08:43:57 Asia/Tehran] PHP Warning:  imagecreatefromjpeg(): &quot;/tmp/php2oIJ4n&quot; is not a valid JPEG file in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 126
+[04-Apr-2024 08:48:34 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:48:59 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:49:11 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:49:23 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:49:33 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:49:43 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:50:03 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:50:44 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:51:01 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:51:12 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:51:31 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 08:51:58 Asia/Tehran] PHP Warning:  file_put_contents(../about.html): Failed to open stream: Operation now in progress in /home/silentga/public_html/shop/cbpos/classes/SystemSettings.php on line 43
+[04-Apr-2024 09:08:27 Asia/Tehran] PHP Warning:  imagecreatefrompng(): &quot;/tmp/phppr2onZ&quot; is not a valid PNG file in /home/silentga/public_html/shop/cbpos/classes/Master.php on line 207
