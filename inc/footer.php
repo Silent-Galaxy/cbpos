@@ -1,124 +1,163 @@
-</div> <!-- /.wrapper -->
+<footer class="sg-footer">
+    <div class="sg-main-container">
+        <!-- بج‌های ایموجی‌دار با زیرنویس اختصاصی -->
+        <div class="sg-footer-badges">
+            <div class="sg-badge-item">
+                <span class="sg-badge-emoji">🛡️</span>
+                <span class="sg-badge-title">نماد اعتماد</span>
+                <span class="sg-badge-sub">خرید ۱۰۰٪ امن</span>
+            </div>
 
-<!-- فوتر مدرن SilentGalaxy -->
-<footer class="main-footer py-4" style="background: var(--bg-surface); border-top: 1px solid var(--border-subtle); color: var(--text-secondary); transition: var(--theme-transition);">
-    <div class="container-fluid px-lg-5">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center text-md-right mb-3 mb-md-0">
-                <span class="font-weight-bold" style="color: var(--text-primary); font-size: 1.1rem;">
-                    <?php echo $_settings->info('name') ?>
-                </span>
-                <p class="small text-muted mb-0 mt-1">
-                    مرجع خرید و فروش قانونی آیتم‌ها، کلیدها و بازی‌های اورجینال
-                </p>
+            <div class="sg-badge-item">
+                <span class="sg-badge-emoji">💳</span>
+                <span class="sg-badge-title">درگاه بانکی</span>
+                <span class="sg-badge-sub">شاپرک و زرین‌پال</span>
             </div>
-            <div class="col-md-6 text-center text-md-left">
-                <a href="<?php echo base_url ?>" class="mx-2 text-muted text-decoration-none small">صفحه نخست</a>
-                <span class="text-muted">|</span>
-                <a href="<?php echo base_url ?>?p=products" class="mx-2 text-muted text-decoration-none small">محصولات و آیتم‌ها</a>
-                <span class="text-muted">|</span>
-                <a href="<?php echo base_url ?>privacy_policy.html" class="mx-2 text-muted text-decoration-none small">حریم خصوصی</a>
-                <span class="text-muted">|</span>
-                <a href="<?php echo base_url ?>termsofservice.php" class="mx-2 text-muted text-decoration-none small">قوانین و شرایط</a>
-                <span class="text-muted">|</span>
-                <a href="<?php echo base_url ?>?p=about" class="mx-2 text-muted text-decoration-none small">درباره ما</a>
+
+            <div class="sg-badge-item">
+                <span class="sg-badge-emoji">⚡</span>
+                <span class="sg-badge-title">تحویل فوری</span>
+                <span class="sg-badge-sub">ارسال خودکار ۲۴/۷</span>
             </div>
+
+            <div class="sg-badge-item">
+                <span class="sg-badge-emoji">🔒</span>
+                <span class="sg-badge-title">ضمانت اصالت</span>
+                <span class="sg-badge-sub">سورس قانونی کالا</span>
+            </div>
+
+            <div class="sg-badge-item">
+                <span class="sg-badge-emoji">💬</span>
+                <span class="sg-badge-title">پشتیبانی تلگرام</span>
+                <span class="sg-badge-sub">پاسخگویی سریع</span>
+            </div>
+        </div>
+
+        <!-- لینک‌های مفید فوتر -->
+        <ul class="sg-footer-links">
+            <li><a href="./">صفحه نخست</a></li>
+            <li><a href="./?p=products">محصولات و آیتم‌ها</a></li>
+            <li><a href="./?p=privacy_policy">حریم خصوصی</a></li>
+            <li><a href="./?p=termsofservice">قوانین و شرایط</a></li>
+            <li><a href="./?p=about">درباره ما</a></li>
+        </ul>
+
+        <!-- کپی‌رایت -->
+        <div class="text-center pt-3 border-top" style="border-color: rgba(255,255,255,0.06) !important;">
+            <p class="m-0" style="font-size: 0.8rem; color: #64748b;">
+                تمامی حقوق مادی و معنوی برای فروشگاه 
+                <strong class="text-white"><?php echo $_settings->info('short_name') ?></strong> محفوظ است © <?php echo date('Y') ?>
+            </p>
         </div>
     </div>
 </footer>
 
-<!-- اسکریپت‌های ضروری -->
+<!-- مودال اصلی سیستم (ورود، ثبت‌نام و فرم‌ها) -->
+<div class="modal fade" id="uni_modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="submit" onclick="$('#uni_modal form').submit()">ثبت اطلاعات</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">انصراف</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- مودال تایید عملیات -->
+<div class="modal fade" id="confirm_modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">تایید</h5>
+            </div>
+            <div class="modal-body">
+                <div id="delete_content"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" id="confirm">تایید</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">انصراف</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- اسکریپت‌های پایه‌ای بوت‌استرپ و سیستم (بسیار حیاتی) -->
+<script src="<?php echo base_url ?>plugins/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo base_url ?>dist/js/adminlte.min.js"></script>
-<script src="<?php echo base_url ?>plugins/sweetalert2/sweetalert2.min.js"></script>
-<script src="<?php echo base_url ?>plugins/toastr/toastr.min.js"></script>
 
-<!-- فایل جاوااسکریپت اختصاصی تعاملات -->
-<script src="<?php echo base_url ?>assets/js/shop-interactions.js"></script>
-
-<!-- اسکریپت فیلتر و سورتینگ زنده و سریع بدون رفرش صفحه -->
 <script>
-$(document).ready(function() {
-    function runLiveFilters() {
-        const searchText = ($('#filterSearchInput').val() || $('#globalSearchInput').val() || '').trim().toLowerCase();
-        const isAllBrands = $('#filter-all').is(':checked');
-        const inStockOnly = $('#filterInStockOnly').is(':checked');
-        
-        // دریافت برندهای تیک‌خورده
-        const checkedBrands = [];
-        $('.brand-filter-check:checked').each(function() {
-            if ($(this).val() !== 'all') {
-                checkedBrands.push($(this).val());
+    // مدیریت لودر (جلوگیری از گیر کردن لودینگ)
+    window.start_loader = function() {
+        $('body').removeClass('loaded');
+        if($('#preloader').length > 0) $('#preloader').show();
+    };
+    
+    window.end_loader = function() {
+        $('body').addClass('loaded');
+        if($('#preloader').length > 0) $('#preloader').fadeOut('fast');
+        $('.preloader, #pre_loader, .loader').fadeOut('fast');
+    };
+
+    // تابع باز کردن پاپ‌آپ لاگین و ثبت‌نام
+    window.uni_modal = function($title = '', $url = '', $size = '') {
+        start_loader();
+        $.ajax({
+            url: $url,
+            error: function(err) {
+                console.error("AJAX Error:", err);
+                alert("خطا در بارگذاری پنجره! لطفا اتصال را بررسی کنید.");
+                end_loader();
+            },
+            success: function(resp) {
+                if (resp) {
+                    $('#uni_modal .modal-title').html($title);
+                    $('#uni_modal .modal-body').html(resp);
+
+                    if ($size != '') {
+                        $('#uni_modal .modal-dialog').removeAttr("class").addClass('modal-dialog ' + $size + ' modal-dialog-centered');
+                    } else {
+                        $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md modal-dialog-centered");
+                    }
+
+                    // اجرای امن مودال
+                    try {
+                        $('#uni_modal').modal('show');
+                    } catch(e) {
+                        console.error("Bootstrap Modal Error:", e);
+                    }
+                }
+            },
+            complete: function() {
+                // اطمینان از بسته شدن لودر در هر شرایطی
+                end_loader();
             }
         });
+    };
 
-        // دریافت دسته‌بندی‌های تیک‌خورده
-        const checkedCats = [];
-        $('.category-filter-check:checked').each(function() {
-            checkedCats.push($(this).val());
-        });
+    window._conf = function($msg = '', $func = '', $params = []) {
+        $('#confirm_modal #confirm').attr('onclick', $func + "(" + $params.join(',') + ")");
+        $('#confirm_modal .modal-body').html($msg);
+        $('#confirm_modal').modal('show');
+    };
 
-        let visibleCount = 0;
-        const items = $('.product-item-col');
+    // فعال‌سازی و چرخش خودکار اسلایدر
+    $(document).ready(function() {
+        end_loader();
 
-        items.each(function() {
-            const item = $(this);
-            const title = item.find('.product-title').text().toLowerCase();
-            const brandId = item.attr('data-brand');
-            const catId = item.attr('data-category');
-            const inStock = item.attr('data-stock') === '1';
-
-            const matchSearch = !searchText || title.includes(searchText);
-            const matchBrand = isAllBrands || checkedBrands.length === 0 || checkedBrands.includes(brandId);
-            const matchCat = checkedCats.length === 0 || checkedCats.includes(catId);
-            const matchStock = !inStockOnly || inStock;
-
-            if (matchSearch && matchBrand && matchCat && matchStock) {
-                item.stop(true, true).fadeIn(200);
-                visibleCount++;
-            } else {
-                item.stop(true, true).fadeOut(150);
-            }
-        });
-
-        $('#productsCountText').text(visibleCount + ' محصول نمایش داده شده');
-        if (visibleCount === 0) {
-            $('#noProductsFoundNotice').removeClass('d-none');
-        } else {
-            $('#noProductsFoundNotice').addClass('d-none');
-        }
-    }
-
-    // اتصال ورودی‌ها به فیلتر
-    $('#filterSearchInput, #globalSearchInput').on('input', runLiveFilters);
-    $('.brand-filter-check, .category-filter-check, #filterInStockOnly').on('change', runLiveFilters);
-
-    // سورتینگ مرتب‌سازی
-    $('#sortProductsSelect').on('change', function() {
-        const val = $(this).val();
-        const container = $('#productsGridContainer');
-        const items = $('.product-item-col').get();
-
-        items.sort(function(a, b) {
-            const priceA = parseFloat($(a).attr('data-price')) || 0;
-            const priceB = parseFloat($(b).attr('data-price')) || 0;
-            const dateA = parseInt($(a).attr('data-date')) || 0;
-            const dateB = parseInt($(b).attr('data-date')) || 0;
-
-            if (val === 'price-asc') return priceA - priceB;
-            if (val === 'price-desc') return priceB - priceA;
-            if (val === 'newest') return dateB - dateA;
-            return 0;
-        });
-
-        $.each(items, function(idx, itm) {
-            container.append(itm);
+        // فعال‌سازی اسلایدر بنر با تایمر ۳.۵ ثانیه
+        $('#sgBannerSlider, #carouselExampleControls').carousel({
+            interval: 3500,
+            ride: 'carousel',
+            pause: 'hover'
         });
     });
-
-    // بار اول تعداد را به‌روزرسانی کن
-    runLiveFilters();
-});
 </script>
-</body>
-</html>

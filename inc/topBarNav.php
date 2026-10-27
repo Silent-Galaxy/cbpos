@@ -1,123 +1,145 @@
-<nav class="main-header navbar navbar-expand-lg navbar-dark border-bottom-0" style="background: var(--bg-card); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-subtle) !important; position: sticky; top: 0; z-index: 1040; transition: var(--theme-transition);">
-  <div class="container-fluid px-lg-4">
-    
-    <!-- لوگو و برند -->
-    <a href="<?php echo base_url ?>" class="navbar-brand d-flex align-items-center">
-      <img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="<?php echo $_settings->info('short_name') ?>" class="brand-image img-circle elevation-2" style="opacity: .95; width: 40px; height: 40px; object-fit: cover; margin-left: 10px;">
-      <span class="brand-text font-weight-bold" style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.3rem;">
-        <?php echo $_settings->info('short_name') ?>
-      </span>
-    </a>
+<?php
+// ضمیمه فایل استایل اختصاصی
+echo '<link rel="stylesheet" href="SilentGalaxy.css">';
+?>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- دکمه منو در موبایل -->
-    <button class="navbar-toggler order-1 border-0" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="fas fa-bars" style="color: var(--text-primary);"></span>
-    </button>
-
-    <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-      <!-- لینک‌های منو اصلی -->
-      <ul class="navbar-nav mx-auto align-items-lg-center">
-        <li class="nav-item">
-          <a href="<?php echo base_url ?>" class="nav-link px-3 <?php echo !isset($_GET['p']) || $_GET['p'] == 'home' ? 'active-menu-pill' : '' ?>">
-            <i class="fas fa-home ml-1"></i> صفحه نخست
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url ?>?p=products" class="nav-link px-3 <?php echo isset($_GET['p']) && $_GET['p'] == 'products' ? 'active-menu-pill' : '' ?>">
-            🎮 بازی‌ها و آیتم‌ها
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="https://t.me/SilentGalaxy" target="_blank" class="nav-link px-3">
-            💰 ما از شما می‌خریم
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url ?>?p=about" class="nav-link px-3 <?php echo isset($_GET['p']) && $_GET['p'] == 'about' ? 'active-menu-pill' : '' ?>">
-            ℹ️ درباره ما
-          </a>
-        </li>
-      </ul>
-
-      <!-- سرچ سریع بالای صفحه -->
-      <form class="form-inline ml-0 ml-lg-3 my-2 my-lg-0" id="topNavSearchForm" onsubmit="event.preventDefault();">
-        <div class="input-group" style="background: var(--input-bg); border-radius: 20px; border: 1px solid var(--border-subtle); padding: 2px 10px;">
-          <input class="form-control form-control-navbar border-0 bg-transparent text-white" type="search" id="globalSearchInput" placeholder="جستجوی محصول، آیتم..." style="color: var(--text-primary) !important; font-size: 0.85rem;">
-          <div class="input-group-append">
-            <button class="btn btn-navbar bg-transparent border-0" type="button" style="color: var(--accent-primary);">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <!-- بخش سمت چپ: دکمه تم، سبد خرید، حساب کاربری -->
-    <ul class="order-1 order-lg-3 navbar-nav navbar-no-expand ml-auto align-items-center flex-row">
-      
-      <!-- دکمه سوییچ دارک / لایت انیمیشنی -->
-      <li class="nav-item ml-2">
-        <button type="button" class="theme-switch-btn" id="themeToggleBtn" title="تغییر حالت شب و روز">
-          <i class="fas fa-moon"></i>
-        </button>
-      </li>
-
-      <!-- سبد خرید -->
-      <?php 
-        $cart_count = 0;
-        if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 2){
-          $c_qry = $conn->query("SELECT sum(quantity) as total FROM `cart_list` where client_id = '{$_settings->userdata('id')}'");
-          if($c_qry && $c_qry->num_rows > 0){
-            $cart_count = $c_qry->fetch_assoc()['total'] ?? 0;
-          }
-        }
-      ?>
-      <li class="nav-item ml-2">
-        <a href="<?php echo base_url ?>?p=cart" class="btn btn-outline-primary position-relative d-flex align-items-center justify-content-center" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--border-subtle); color: var(--text-primary); background: var(--bg-surface);">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="badge badge-pill badge-danger position-absolute" id="cart-count" style="top: -5px; right: -5px; font-size: 0.7rem; background: var(--accent-gradient);">
-            <?php echo $cart_count ?>
-          </span>
+<nav class="navbar navbar-expand-lg sg-navbar">
+    <div class="container-fluid px-3 px-lg-5">
+        
+        <!-- برند و لوگو (سمت راست در RTL) -->
+        <a class="navbar-brand me-3" href="./">
+            <img src="<?php echo validate_image($_settings->info('logo')) ?>" width="34" height="34" class="d-inline-block align-middle" alt="Logo">
+            <span><?php echo $_settings->info('short_name') ?></span>
         </a>
-      </li>
 
-      <!-- ورود یا منوی کاربر -->
-      <li class="nav-item mr-2">
-        <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 2): ?>
-          <div class="dropdown">
-            <button class="btn btn-buy-modern dropdown-toggle py-2 px-3 m-0" type="button" id="userMenuBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user-circle ml-1"></i> <?php echo $_settings->userdata('firstname') ?>
-            </button>
-            <div class="dropdown-menu dropdown-menu-left" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px; box-shadow: var(--card-shadow);">
-              <a class="dropdown-item" href="<?php echo base_url ?>?p=my_account" style="color: var(--text-primary);"><i class="fas fa-user-cog ml-2"></i> حساب کاربری</a>
-              <div class="dropdown-divider" style="border-color: var(--border-subtle);"></div>
-              <a class="dropdown-item text-danger" href="<?php echo base_url ?>classes/Login.php?f=logout_client"><i class="fas fa-sign-out-alt ml-2"></i> خروج</a>
+        <!-- دکمه همبرگری موبایل -->
+        <button class="navbar-toggler border-0 text-white" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <!-- لینک‌های منو -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link-custom <?php echo !isset($_GET['p']) ? 'active' : '' ?>" href="./">خانه</a>
+                </li>
+                <?php 
+                $cat_qry = $conn->query("SELECT * FROM categories where status = 1 limit 4");
+                $count_cats = $conn->query("SELECT * FROM categories where status = 1")->num_rows;
+                while($crow = $cat_qry->fetch_assoc()):
+                ?>
+                <li class="nav-item">
+                    <a class="nav-link-custom" href="./?p=products&c=<?php echo md5($crow['id']) ?>"><?php echo $crow['category'] ?></a>
+                </li>
+                <?php endwhile; ?>
+                
+                <?php if($count_cats > 4): ?>
+                <li class="nav-item">
+                    <a class="nav-link-custom" href="./?p=view_categories">همه دسته‌بندی‌ها</a>
+                </li>
+                <?php endif; ?>
+
+                <li class="nav-item">
+                    <a class="nav-link-custom" href="./?p=about">درباره ما</a>
+                </li>
+            </ul>
+
+            <!-- سرچ باکس و دکمه‌های کاربری (سمت چپ در RTL) -->
+            <div class="d-flex align-items-center flex-wrap gap-2 mt-3 mt-lg-0">
+                <!-- فرم جستجو -->
+                <form class="sg-search-box me-lg-3" id="search-form">
+                    <input class="form-control sg-search-input" type="search" placeholder="جستجوی محصول، آیتم..." name="search" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : "" ?>" autocomplete="off">
+                    <button class="sg-search-btn" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                
+                
+                              <!-- دکمه جابجایی بین حالت روشن و تاریک -->
+                <button type="button" class="btn-theme-toggle me-2" id="theme-toggle" title="تغییر تم">
+                    <i class="fa fa-moon" id="theme-icon"></i>
+                </button>    
+
+                <!-- ورود یا پنل کاربری -->
+                <?php if($_settings->userdata('id') > 0 && $_settings->userdata('login_type') == 2): ?>
+                    <a class="btn-sg-cart me-2" href="./?p=cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span>سبد خرید</span>
+                        <span class="badge-cart-sg" id="cart-count">
+                          <?php 
+                            $count = $conn->query("SELECT SUM(quantity) as items from `cart` where client_id =".$_settings->userdata('id'))->fetch_assoc()['items'];
+                            echo ($count > 0 ? $count : 0);
+                          ?>
+                        </span>
+                    </a>
+
+                    <a href="./?p=my_account" class="btn-sg-glow me-2">
+                        <i class="fa fa-user"></i>
+                        <span><?php echo $_settings->userdata('firstname') ?></span>
+                    </a>
+                    <a href="logout.php" class="btn btn-outline-danger btn-sm rounded-circle px-2 py-1" title="خروج">
+                        <i class="fa fa-sign-out-alt"></i>
+                    </a>
+                <?php else: ?>
+                    <button id="login-btn" type="button" class="btn-sg-glow">
+                        <i class="fa fa-sign-in-alt"></i>
+                        <span>ورود به حساب</span>
+                    </button>
+                <?php endif; ?>
             </div>
-          </div>
-        <?php else: ?>
-          <a href="<?php echo base_url ?>login.php" class="btn-buy-modern py-2 px-3 m-0 text-decoration-none">
-            <i class="fas fa-sign-in-alt ml-1"></i> ورود به حساب
-          </a>
-        <?php endif; ?>
-      </li>
-
-    </ul>
-  </div>
+        </div>
+    </div>
 </nav>
 
-<style>
-  .active-menu-pill {
-    background: rgba(99, 102, 241, 0.15) !important;
-    color: var(--accent-primary) !important;
-    border-radius: 10px;
-    font-weight: 700;
-  }
-  .nav-link {
-    color: var(--text-secondary) !important;
-    font-weight: 600;
-    transition: var(--theme-transition);
-  }
-  .nav-link:hover {
-    color: var(--accent-primary) !important;
-  }
-</style>
+<script>
+  $(function(){
+    $('#login-btn').click(function(){
+      if(typeof uni_modal === "function"){
+        uni_modal("","login.php");
+      }
+    });
+
+    $('#search-form').submit(function(e){
+      e.preventDefault();
+      var sTxt = $('[name="search"]').val();
+      if(sTxt != '')
+        location.href = './?p=products&search='+encodeURIComponent(sTxt);
+    });
+  });
+
+
+
+
+
+
+
+
+// بارگذاری آنی تم ذخیره‌شده
+(function() {
+    var savedTheme = localStorage.getItem('sg_theme') || 'dark';
+    if(savedTheme === 'light') {
+        $('body').addClass('light-mode');
+        $('#theme-icon').removeClass('fa-moon').addClass('fa-sun');
+    }
+
+    $('#theme-toggle').click(function(){
+        $('body').toggleClass('light-mode');
+        var isLight = $('body').hasClass('light-mode');
+        
+        // ذخیره در مرورگر
+        localStorage.setItem('sg_theme', isLight ? 'light' : 'dark');
+
+        // تغییر آیکون با چرخش نرم
+        if(isLight) {
+            $('#theme-icon').fadeOut(120, function(){
+                $(this).removeClass('fa-moon').addClass('fa-sun').fadeIn(120);
+            });
+        } else {
+            $('#theme-icon').fadeOut(120, function(){
+                $(this).removeClass('fa-sun').addClass('fa-moon').fadeIn(120);
+            });
+        }
+    });
+})();
+</script>
