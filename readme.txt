@@ -25,8 +25,11 @@ FIRST Download
 **LOGIN DETAILS** 
 
 Admin
-user: SilentAdmin
-pass: @SilentGalaxy.ir@JahateBazdid-AdminPanel.
+http://localhost/cbpos/admin/
+user: 
+SilentAdmin
+pass: 
+@SilentGalaxy.ir@JahateBazdid-AdminPanel.
 
 create your own user
 
