@@ -1,383 +1,645 @@
-<div align="center">
+# 🧴 CBPOS — سامانه مدیریت و فروشگاه برخط محصولات آرایشی و بهداشتی
 
-# سامانه مدیریت و فروشگاه برخط محصولات آرایشی و بهداشتی
-## (Cosmetics and Beauty Product Online Store - CBPOS)
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-Bachelor%20Thesis-0D6EFD?style=for-the-badge" alt="Bachelor Thesis">
+  <img src="https://img.shields.io/badge/PHP-7.4%20%7C%208.x-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/Database-MariaDB%2FMySQL-003545?style=for-the-badge&logo=mysql&logoColor=white" alt="Database">
+  <img src="https://img.shields.io/badge/Stack-XAMPP-FB7A24?style=for-the-badge" alt="XAMPP">
+  <img src="https://img.shields.io/badge/Diagrams-PlantUML-6B4FBB?style=for-the-badge" alt="PlantUML">
+</p>
 
-**پروژه پایانی دوره کارشناسی ناپیوسته مهندسی حرفه‌ای کامپیوتر - گرایش نرم‌افزار**  
-**دانشکده فنی و حرفه‌ای شهید چمران رشت (دوره روزانه)**  
+<p align="center">
+  <strong>
+    Cosmetics & Beauty Product Online Store — CBPOS
+  </strong>
+</p>
 
----
-
-[![PHP Version](https://img.shields.io/badge/PHP-8.1%20%7C%208.2-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
-[![Database](https://img.shields.io/badge/Database-MySQL%20%7C%20MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![Web Server](https://img.shields.io/badge/Server-Apache%20(XAMPP)-F38020?style=for-the-badge&logo=apache&logoColor=white)](https://www.apachefriends.org/)
-[![UI Framework](https://img.shields.io/badge/UI-Bootstrap%20%7C%20AdminLTE-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)](https://adminlte.io/)
-[![Modeling](https://img.shields.io/badge/UML%20Design-PlantUML-orange?style=for-the-badge&logo=diagramsdotnet&logoColor=white)](https://editor.plantuml.com/)
-[![License](https://img.shields.io/badge/Status-Evaluation%20Ready-success?style=for-the-badge)](#)
-
-</div>
-
----
-
-## شناسنامه علمی و اطلاعات پروژه
-
-| فیلد ارزیابی | شرح مشخصات |
-| :--- | :--- |
-| **عنوان پروژه** | سامانه مدیریت و فروشگاه برخط محصولات آرایشی و بهداشتی (CBPOS) |
-| **دانشجو** | امیرعلی صالح پور |
-| **استاد راهنما** | جناب استاد عباس حیدری پاشاکی |
-| **مقطع و رشته تحصیلی** | کارشناسی ناپیوسته مهندسی حرفه‌ای کامپیوتر - نرم‌افزار (روزانه) |
-| **مرکز آموزشی** | دانشکده فنی و حرفه‌ای شهید چمران رشت |
-| **تاریخ ارزیابی و دفاع** | آبان‌ماه ۱۴۰۵ (1405/08) |
-| **مخزن توسعه در گیت‌هاب** | [https://github.com/Silent-Galaxy/cbpos](https://github.com/Silent-Galaxy/cbpos) |
-| **کد منبع و هسته اولیه** | [SourceCodester CBPOS](https://www.sourcecodester.com/php/15181/cosmetics-and-beauty-product-online-store-phpoop-free-source-code.html) |
-| **ویرایشگر آنلاین دیاگرام‌ها** | [PlantUML Online Editor](https://editor.plantuml.com/) |
-| **آدرس پورتال کاربری (مشتری)** | `http://localhost/cbpos/` |
-| **آدرس پنل مدیریت (ادمین)** | `http://localhost/cbpos/admin/` |
+<p align="center">
+  پروژه پایانی دوره کارشناسی ناپیوسته مهندسی حرفه‌ای کامپیوتر — گرایش نرم‌افزار<br>
+  دانشکده فنی و حرفه‌ای شهید چمران رشت (روزانه)
+</p>
 
 ---
 
-## فهرست سرفصل‌ها
-- [۱. چکیده و تبیین مسئله](#۱-چکیده-و-تبیین-مسئله)
-- [۲. تحلیل نقادانه و بازمهندسی نرم‌افزار (Evidence-Based Re-engineering)](#۲-تحلیل-نقادانه-و-بازمهندسی-نرم‌افزار-evidence-based-re-engineering)
-- [۳. پشته فناوری و پیش‌نیازها](#۳-پشته-فناوری-و-پیش‌نیازها)
-- [۴. راهنمای گام‌به‌گام نصب و راه‌اندازی بر بستر XAMPP](#۴-راهنمای-گام‌به‌گام-نصب-و-راه‌اندازی-بر-بستر-xampp)
-- [۵. معماری ساختار فایل‌ها و دایرکتوری پروژه](#۵-معماری-ساختار-فایل‌ها-و-دایرکتوری-پروژه)
-- [۶. مجموعه ۱۰ دیاگرام استاندارد مهندسی نرم‌افزار (PlantUML)](#۶-مجموعه-۱۰-دیاگرام-استاندارد-مهندسی-نرم‌افزار-plantuml)
-- [۷. ماتریس تحلیل امنیتی بر پایه استاندارد OWASP Top 10](#۷-ماتریس-تحلیل-امنیتی-بر-پایه-استاندارد-owasp-top-10)
-- [۸. گالری تصاویر محیط کاربری و پیشخوان مدیریت](#۸-گالری-تصاویر-محیط-کاربری-و-پیشخوان-مدیریت)
-- [۹. تحلیل مهندسی پایگاه داده و نرمال‌سازی](#۹-تحلیل-مهندسی-پایگاه-داده-و-نرمال‌سازی)
-- [۱۰. ارزیابی نهایی و چشم‌انداز توسعه آتی](#۱۰-ارزیابی-نهایی-و-چشم‌انداز-توسعه-آتی)
+## 📌 مشخصات پروژه
+
+| مشخصه | اطلاعات |
+|:---|:---|
+| **نام پروژه** | سامانه مدیریت و فروشگاه برخط محصولات آرایشی و بهداشتی (CBPOS) |
+| **دانشجو** | امیرعلی صالح‌پور |
+| **استاد راهنما** | جناب آقای عباس حیدری‌پاشاکی |
+| **مقطع و رشته** | کارشناسی ناپیوسته — مهندسی حرفه‌ای کامپیوتر (نرم‌افزار) |
+| **دانشگاه** | دانشکده فنی و حرفه‌ای شهید چمران رشت (روزانه) |
+| **تاریخ ارزیابی / دفاع** | آبان‌ماه ۱۴۰ (1405/08) |
+| **مخزن توسعه** | [Silent-Galaxy/cbpos](https://github.com/Silent-Galaxy/cbpos) |
+| **منبع پایه / هسته اولیه** | [SourceCodester — Cosmetics and Beauty Product Online Store](https://www.sourcecodester.com/php/15181/cosmetics-and-beauty-product-online-store-phpoop-free-source-code.html) |
+| **بستر اجرا** | XAMPP (Apache + MariaDB/MySQL + PHP OOP) |
+| **آدرس سمت کاربر** | `http://localhost/cbpos/` |
+| **آدرس سمت مدیریت** | `http://localhost/cbpos/admin/` |
 
 ---
 
-## ۱. چکیده و تبیین مسئله
+## 📑 فهرست مطالب
 
-گسترش روزافزون خرده‌فروشی الکترونیک در حوزه محصولات آرایشی، مراقبت پوستی و زیبایی نیازمند سامانه‌های پایداری است که چالش‌های تنوع محصول (رنگ، حجم، اسانس)، ردیابی دقیق موجودی انبار، انقضای اقلام و حفظ امنیت داده‌های کاربران را پوشش دهند.
-
-پروژه **CBPOS** در قالب پروژه پایانی مقطع کارشناسی ناپیوسته، با رویکرد **بازمهندسی نرم‌افزار (Software Re-engineering)** توسعه یافته است. در این فرآیند، اسکلت اولیه یک سورس‌کد پایه از پلتفرم *SourceCodester* مورد واکاوی نقادانه قرار گرفته، آسیب‌پذیری‌های حاد امنیتی و ضعف‌های معماری آن شناسایی شده و سپس با اتکا به متدولوژی‌های مدرن مهندسی نرم‌افزار (اصول شی‌گرایی OOP، لایه‌بندی داده، تراکنش‌های اتمیک ACID و ایمن‌سازی نشست‌ها) بازسازی گردیده است.
-
-### اهداف بنیادین سیستم:
-1. **پورتال مشتریان (Storefront):** ارائه کاتالوگ پویا بر پایه برند و دسته‌بندی، سبد خرید ناهمگام (AJAX)، ثبت سفارش و رهگیری فرآیند آماده‌سازی.
-2. **پیشخوان کنترل مدیریت (Admin Dashboard):** مدیریت چندسطحی کالا، مدیریت انبارداری (Stock-In / Stock-Out)، پردازش وضعیت سفارش‌ها در ۵ فاز و گزارش‌گیری مالی.
-
----
-
-## ۲. تحلیل نقادانه و بازمهندسی نرم‌افزار (Evidence-Based Re-engineering)
-
-در فرآیند ارزیابی پروژه‌های کارشناسی، توانایی تحلیل علمی کدهای موجود در صنعت و ارتقای شواهد‌محور آن‌ها شاخص کلیدی بلوغ مهندسی است:
-
-[هسته اولیه: SourceCodester] ├── 1. آسیب‌پذیری‌های بحرانی (SQL Injection، رندر
-XSS، عدم وجود توکن CSRF) ├── 2. استفاده از الگوریتم منسوخ MD5 بدون Salt در جدول
-کاربران ├── 3. ریسک همزمانی (Race Condition) و کسری منفی موجودی در انبار └── 4.
-جفت‌شدگی شدید (Tight Coupling) لایه‌های Presentation و Data │ ▼ [فرآیند بازطراحی
-و Refactoring بر پایه شواهد علمی] [نسخه نهایی: Silent-Galaxy/cbpos] ├── 1.
-امن‌سازی کامل لایه داده با Prepared Statements و PDO/MySQLi Driver ├── 2.
-به‌کارگیری الگوریتم BCRYPT (Cost=10) با توابع password_hash() ├── 3. ایجاد
-تراکنش‌های اتمیک در ثبت سفارش و قفل‌گذاری سطری موجودی └── 4. انطباق کامل با مفسر
-مدرن PHP 8.x و ساختاربندی شی‌گرای کلاس‌ها
-
-
-### مقایسه مشخصه‌های فنی نسخه پایه و نسخه بازمهندسی‌شده:
-
-| شاخص ارزیابی | نسخه اولیه (Legacy Code) | نسخه بازمهندسی‌شده (Silent-Galaxy) | مرجع و شواهد علمی |
-| :--- | :--- | :--- | :--- |
-| **امنیت دیتابیس** | الحاق مستقیم رشته‌های کاربر به SQL | پیاده‌سازی کامل Prepared Statements | راهنمای OWASP علیه SQLi |
-| **رمزنگاری پسورد** | تابع منسوخ `md5($_POST['pwd'])` | استفاده از `PASSWORD_BCRYPT` | استاندارد NIST SP 800-63B |
-| **مدیریت همزمانی** | خواندن و نوشتن غیراصل در انبار | تراکنش‌های ACID و قفل `FOR UPDATE` | اصول مهندسی تراکنش دیتابیس |
-| **اعتبارسنجی رسانه** | بررسی پسوند سطحی فایل | ارزیابی هدر باینری و اعتبارسنجی MIME | راهنمای ایمن‌سازی سرور وب |
-| **امنیت نشست‌ها** | استفاده از شناسه نشست استاتیک | فراخوانی `session_regenerate_id(true)` | جلوگیری از Session Fixation |
+1. [چکیده و معرفی سامانه](#1-چکیده-و-معرفی-سامانه)
+2. [تحلیل نقادانه، مهندسی معکوس و بازمهندسی نرم‌افزار](#2-تحلیل-نقادانه-مهندسی-معکوس-و-بازمهندسی-نرمافزار)
+3. [معماری و قابلیت‌های کارکردی](#3-معماری-و-قابلیتهای-کارکردی)
+4. [راهنمای گام‌به‌گام راه‌اندازی روی XAMPP](#4-راهنمای-گامبهگام-راهاندازی-روی-xampp)
+5. [ساختار فایل‌ها و ماژول‌ها](#5-ساختار-فایلها-و-ماژولها)
+6. [مجموعه ۱۰ دیاگرام مهندسی نرم‌افزار (PlantUML)](#6-مجموعه-۱۰-دیاگرام-مهندسی-نرمافزار-plantuml)
+7. [ارزیابی امنیتی و نگاشت به OWASP Top 10](#7-ارزیابی-امنیتی-و-نگاشت-به-owasp-top-10)
+8. [گالری تصاویر محیط برنامه](#8-گالری-تصاویر-محیط-برنامه)
+9. [محدودیت‌ها، چالش‌ها و چشم‌انداز توسعه آتی](#9-محدودیتها-چالشها-و-چشمانداز-توسعه-آتی)
+10. [نتیجه‌گیری](#10-نتیجهگیری)
+11. [منابع و ارجاعات](#11-منابع-و-ارجاعات)
 
 ---
 
-## ۳. پشته فناوری و پیش‌نیازها
+## 1. چکیده و معرفی سامانه
 
-* **زبان هسته و معماری:** PHP 8.1 / 8.2 بر پایه اصول شی‌گرایی (OOP)
-* **پایگاه داده رابطه‌ای:** MariaDB 10.4+ / MySQL 8.0
-* **محیط توسعه و وب‌سرور محلی:** پشته بومی XAMPP (Apache HTTP Server 2.4)
-* **واسط کاربری و فریم‌ورک‌ها:** HTML5, CSS3, JavaScript (ES6+), jQuery, Bootstrap 4.6, AdminLTE v3
-* **اکستنشن‌های الزامی PHP:** 
-  * `php_pdo_mysql` و `php_mysqli` (ارتباط با بانک اطلاعاتی)
-  * `php_gd` (پردازش تصاویر، تغییر ابعاد و ساخت بندانگشتی کالا)
-  * `php_mbstring` (پردازش رشته‌های چندبایتی و کاراکترهای فارسی)
+**CBPOS** یک سامانه تحت وب فروشگاهی برای مدیریت و فروش آنلاین محصولات آرایشی، بهداشتی و مراقبت پوستی است. این پروژه با رویکرد **بازمهندسی نرم‌افزار (Software Re-engineering)** بر روی یک کد پایه PHP/OOP توسعه یافته و هدف اصلی آن، تبدیل یک نمونه اولیه آموزشی به یک سیستم قابل دفاع در سطح کارشناسی است؛ سیستمی که هم از نظر **کارکردی**، هم از نظر **امنیتی** و هم از نظر **مستندسازی مهندسی نرم‌افزار** قابل ارزیابی باشد.
+
+سامانه دارای دو لایه کاربری مستقل است:
+
+### 👤 1.1. پورتال مشتریان (Storefront / Client-Side)
+
+- مرور کاتالوگ محصولات بر اساس دسته‌بندی و برند
+- جستجوی کالا
+- مشاهده موجودی لحظه‌ای بر اساس تنوع محصول (Variant)
+- مدیریت سبد خرید
+- ثبت سفارش و تکمیل اطلاعات تحویل
+- مشاهده تاریخچه و وضعیت سفارش‌ها
+
+### 🛠️ 1.2. پیشخوان مدیریت (Admin Dashboard)
+
+- ورود امن مدیران
+- مدیریت محصولات، برندها و دسته‌بندی‌ها
+- مدیریت موجودی انبار (Stock In / Stock Out)
+- مدیریت چرخه حیات سفارش‌ها
+- مشاهده داشبورد آماری و گزارش‌های ساده
+- تنظیمات اطلاعات عمومی فروشگاه
 
 ---
 
-## ۴. راهنمای گام‌به‌گام نصب و راه‌اندازی بر بستر XAMPP
+## 2. تحلیل نقادانه، مهندسی معکوس و بازمهندسی نرم‌افزار
 
-برای اجرای بی‌نقص پروژه در محیط آزمایشگاهی یا سیستم ارزیابی، مراحل زیر را به ترتیب طی نمایید:
+یکی از ارکان مهم پروژه‌های کارشناسی، صرفاً «اجرا کردن کد» نیست؛ بلکه توانایی **تحلیل انتقادی**، **شناسایی نقاط ضعف معماری/امنیتی** و **ارائه اصلاحات مستند** است. در این پروژه، کد پایه از SourceCodester دریافت شد و سپس فرآیند مهندسی معکوس و بازمهندسی روی آن انجام گرفت.
 
-### گام اول: کلون پروژه در دایرکتوری ریشه آپاچی
-فایل‌های مخزن را مستقیماً در پوشه `htdocs` نرم‌افزار XAMPP مستقر سازید:
+### 2.1. خلاصه وضعیت نسخه پایه (Legacy)
+
+نسخه اولیه دارای مشکلات معماری و امنیتی زیر بود:
+
+| # | مشکل در نسخه پایه | ریسک مهندسی / امنیتی |
+|:---:|:---|:---|
+| 1 | استفاده از کوئری‌های متنی خام در SQL | آسیب‌پذیری تزریق SQL (SQL Injection) |
+| 2 | ذخیره رمز عبور با MD5 بدون Salt | شکست راحت هش‌ها و حملات Rainbow Table |
+| 3 | رندر مستقیم ورودی کاربر بدون Sanitization | XSS ذخیره‌شده و بازتابی |
+| 4 | عدم کنترل همزمانی در کسر موجودی | Overselling و مغایرت انبار در خرید همزمان |
+| 5 | آپلود ناامن تصویر بدون بررسی MIME/Content | احتمال آپلود فایل مخرب و RCE |
+| 6 | جفت‌شدگی بالا بین لایه نمایش و منطق داده | کاهش Readability، Testability و Maintainability |
+
+### 2.2. اقدامات اصلاحی انجام‌شده در نسخه بازمهندسی‌شده
+
+| # | اصلاح مهندسی‌شده | هدف علمی / استاندارد مرتبط |
+|:---:|:---|:---|
+| 1 | استفاده از Prepared Statements / Parameterized Queries | mitigation SQL Injection — OWASP A03:2021 |
+| 2 | جایگزینی MD5 با `password_hash()` و الگوریتم BCRYPT | Cryptographic Failure Mitigation — OWASP A02:2021 |
+| 3 | اعتبارسنجی و پاکسازی ورودی‌ها + Escape خروجی | XSS Mitigation |
+| 4 | استفاده از تراکنش پایگاه داده و قفل ردیف (`FOR UPDATE`) در فرآیند سفارش | ACID Compliance و کنترل Race Condition |
+| 5 | بررسی پسوند، MIME Type، حجم فایل و تولید نام یکتا برای آپلود | Secure File Upload |
+| 6 | جداسازی نسبی لایه‌های Presentation / Business Logic / Data Access | Separation of Concerns و SRP |
+
+### 2.3. ماتریس شواهد قابل ارائه برای دفاع
+
+برای اینکه پروژه صرفاً ادعا نباشد، شواهد زیر پیشنهاد می‌شود در زمان دفاع ارائه شوند:
+
+| ادعای پروژه | شاهد فنی | محل بررسی |
+|:---|:---|:---|
+| جلوگیری از SQL Injection | استفاده از `prepare()` و `bind_param()` | کلاس‌های مرتبط با ورود، ثبت‌نام و عملیات CRUD |
+| ذخیره امن رمز عبور | وجود `password_hash()` هنگام ثبت و `password_verify()` هنگام ورود | ماژول احراز هویت |
+| محافظت از نشست | فراخوانی `session_regenerate_id(true)` پس از لاگین موفق | کنترلر ورود |
+| کنترل موجودی در سفارش | شروع تراکنش، اعتبارسنجی موجودی، Commit/Rollback | فرآیند Checkout |
+| امنیت آپلود تصویر | بررسی نوع فایل، حجم، تغییر نام یکتا | ماژول مدیریت محصولات |
+| مستندسازی مهندسی نرم‌افزار | ۱۰ دیاگرام UML/PlantUML | بخش دیاگرام‌های همین README |
+
+---
+
+## 3. معماری و قابلیت‌های کارکردی
+
+### 3.1. معماری کلی
+
+سامانه بر پایه معماری لایه‌ای ساده اما قابل دفاع طراحی شده است:
+
+```text
+Presentation Layer
+        ↓
+Business Logic / Controllers
+        ↓
+Data Access Layer (DBConnection / mysqli)
+        ↓
+Persistence Layer (MySQL/MariaDB + Local File Storage)
+```
+
+### 3.2. قابلیت‌های سمت مشتری
+
+- نمایش محصولات بر اساس دسته و برند
+- فیلتر و جستجوی ساده
+- مشاهده تنوع‌های کالا و موجودی هر Variant
+- افزودن به سبد خرید
+- ویرایش تعداد اقلام سبد
+- ثبت سفارش با آدرس تحویل
+- انتخاب شیوه پرداخت (در نسخه فعلی عمدتاً شبیه‌سازی/فاکتور داخلی)
+- مشاهده تاریخچه سفارش‌ها
+
+### 3.3. قابلیت‌های سمت مدیریت
+
+- داشبورد مدیریتی
+- مدیریت کاربران مدیر
+- مدیریت دسته‌بندی‌ها
+- مدیریت برندها
+- مدیریت محصولات
+- مدیریت موجودی و تنوع کالاها
+- مدیریت سفارش‌ها و تغییر وضعیت آن‌ها
+- تنظیمات اطلاعات فروشگاه
+
+---
+
+## 4. راهنمای گام‌به‌گام راه‌اندازی روی XAMPP
+
+> این پروژه به‌طور خاص برای اجرای محلی روی **XAMPP** تنظیم و تست شده است.
+
+### 4.1. پیش‌نیازها
+
+- XAMPP با پشتیبانی از PHP نسخه 7.4 تا 8.2
+- MySQL/MariaDB فعال
+- مرورگر مدرن (Chrome / Firefox / Edge)
+- Git (اختیاری؛ در صورت نبود Git می‌توانید ZIP را دانلود و Extract کنید)
+- فعال بودن افزونه GD در PHP برای پردازش تصاویر
+
+---
+
+### 4.2. گام اول: قرار دادن پروژه در `htdocs`
+
+#### روش الف) با Git
+
 ```bash
-# رفتن به دایرکتوری htdocs ویندوز
-cd C:\xampp\htdocs
-
-# کلون مخزن پروژه
+cd C:/xampp/htdocs
 git clone https://github.com/Silent-Galaxy/cbpos.git
+```
 
-[!IMPORTANT] اطمینان حاصل کنید نام پوشه پروژه در htdocs دقیقاً cbpos باشد (مسیر
-نهایی: C:\xampp\htdocs\cbpos).
+#### روش ب) بدون Git
 
-گام دوم: فعال‌سازی ماژول گرافیکی GD در مفسر PHP
+1. از مخزن GitHub گزینه **Code → Download ZIP** را بزنید.
+2. فایل ZIP را Extract کنید.
+3. پوشه حاصل را دقیقاً با نام `cbpos` در مسیر زیر قرار دهید:
 
-1.  فایل C:\xampp\php\php.ini را با یک ادیتور متنی باز کنید.
-2.  عبارت extension=gd را جستجو نمایید.
-3.  در صورت وجود سمی‌کالن (;) در ابتدای خط، آن را بردارید:
-    extension=gd
-4.  فایل را ذخیره نموده و سرویس آپاچی را از طریق XAMPP Control Panel یک بار
-    Restart کنید.
+```text
+C:/xampp/htdocs/cbpos
+```
 
-گام سوم: پیکربندی و درون‌ریزی پایگاه داده
+> ⚠️ اگر نام پوشه چیز دیگری باشد، آدرس `http://localhost/cbpos/` کار نخواهد کرد.
 
-1.  از کنترل پنل XAMPP، سرویس‌های Apache و MySQL را در حالت Start قرار دهید.
-2.  به پنل مدیریت دیتابیس در آدرس زیر وارد شوید:
-    http://localhost/phpmyadmin/
-3.  یک پایگاه داده جدید به نام دقیق cbpos_db با یونیکد utf8mb4_general_ci ایجاد
-    کنید.
-4.  وارد پایگاه داده cbpos_db شده، به تب Import بروید و فایل اسکیمای پروژه را
-    بارگذاری نمایید:
-    C:\xampp\htdocs\cbpos\database\cbpos_db.sql
+---
 
-گام چهارم: اعتبارسنجی اتصال پایگاه داده
+### 4.3. گام دوم: فعال‌سازی Apache و MySQL
 
-تنظیمات اتصال در کلاس‌های مربوطه به طور پیش‌فرض برای پشته بومی XAMPP تنظیم
-گردیده است:
+1. XAMPP Control Panel را باز کنید.
+2. سرویس‌های زیر را Start کنید:
+   - Apache
+   - MySQL / MariaDB
 
+---
+
+### 4.4. گام سوم: فعال‌سازی GD Library در PHP
+
+1. فایل زیر را باز کنید:
+
+```text
+C:/xampp/php/php.ini
+```
+
+2. عبارت زیر را جستجو کنید:
+
+```ini
+;extension=gd
+```
+
+3. سمیکالن ابتدای خط را حذف کنید تا به شکل زیر درآید:
+
+```ini
+extension=gd
+```
+
+4. فایل را ذخیره کنید.
+5. Apache را از XAMPP Control Panel Restart کنید.
+
+---
+
+### 4.5. گام چهارم: ساخت پایگاه داده و Import اسکریپت
+
+1. به آدرس زیر بروید:
+
+```text
+http://localhost/phpmyadmin/
+```
+
+2. یک دیتابیس جدید با نام دقیق زیر بسازید:
+
+```text
+cbpos_db
+```
+
+3. Collation پیشنهادی:
+
+```text
+utf8mb4_general_ci
+```
+
+4. وارد دیتابیس `cbpos_db` شوید.
+5. به تب **Import** بروید.
+6. فایل SQL پروژه را از مسیر زیر انتخاب و Import کنید:
+
+```text
+C:/xampp/htdocs/cbpos/database/cbpos_db.sql
+```
+
+---
+
+### 4.6. گام پنجم: بررسی تنظیمات اتصال به دیتابیس
+
+معمولاً در فایل‌های پیکربندی پروژه، مقادیر زیر استفاده می‌شوند:
+
+```php
 define('DB_SERVER', "localhost");
 define('DB_USERNAME', "root");
 define('DB_PASSWORD', "");
 define('DB_NAME', "cbpos_db");
+```
 
-گام پنجم: ورود به سیستم و تست کارکردی
+اگر رمز root در XAMPP شما تغییر کرده باشد، باید `DB_PASSWORD` را اصلاح کنید.
 
-  - آدرس فروشگاه (ساید مشتری): http://localhost/cbpos/
-  - آدرس پیشخوان ادمین (ساید مدیریت): http://localhost/cbpos/admin/
+---
 
-| نقش کاربری                 | نام کاربری                       | کلمه عبور پیش‌فرض | دسترسی‌ها                                    |
-| :------------------------- | :------------------------------- | :---------------- | :------------------------------------------- |
-| **مدیر کل سیستم (Admin)**  | `admin`                          | `admin123`        | کنترل کامل سفارشات، انبار، کاتالوگ و متادیتا |
-| **مشتری فروشگاه (Client)** | ثبت‌نام اختیاری از منوی Register | تعیین توسط کاربر  | خرید آنلاین، ثبت سبد، مشاهده سابقه فاکتورها  |
+### 4.7. گام ششم: دسترسی به سامانه
 
-۵. معماری ساختار فایل‌ها و دایرکتوری پروژه
+#### سمت کاربر
 
+```text
+http://localhost/cbpos/
+```
+
+#### سمت مدیریت
+
+```text
+http://localhost/cbpos/admin/
+```
+
+---
+
+### 4.8. اطلاعات ورود پیش‌فرض
+
+| نقش | نام کاربری / ایمیل | رمز عبور |
+|:---|:---|:---|
+| مدیر کل سیستم | `admin` | `admin123` |
+| مشتری | از طریق منوی Register ثبت‌نام کنید | رمز دلخواه کاربر |
+
+> 🔐 توصیه امنیتی: پس از اجرای اولیه، حتماً رمز پیش‌فرض ادمین را تغییر دهید.
+
+---
+
+### 4.9. عیب‌یابی رایج
+
+| مشکل | علت احتمالی | راه‌حل |
+|:---|:---|:---|
+| خطای 404 در `http://localhost/cbpos/` | نام پوشه پروژه اشتباه است | پوشه باید دقیقاً `cbpos` نام داشته باشد |
+| خطای اتصال به دیتابیس | MySQL روشن نیست یا رمز root تغییر کرده | سرویس MySQL را Start کنید و پیکربندی را بررسی کنید |
+| تصاویر آپلود نمی‌شوند | GD فعال نیست یا پوشه `uploads` writable نیست | `extension=gd` را فعال کنید و دسترسی پوشه را بررسی کنید |
+| حروف فارسی به‌هم‌ریخته نمایش داده می‌شود | انکودینگ دیتابیس/جدول مناسب نیست | از `utf8mb4` استفاده کنید |
+| Apache روی پورت 80 اجرا نمی‌شود | IIS یا برنامه دیگری پورت 80 را اشغال کرده | سرویس مزاحم را ببندید یا پورت Apache را تغییر دهید |
+
+---
+
+## 5. ساختار فایل‌ها و ماژول‌ها
+
+```text
 cbpos/
-├── admin/                      # کنترلرها و لایه نمایش سمت مدیریت سیستم
-│   ├── home.php                # داشبورد تحلیلی و شاخص‌های آماری
-│   ├── inc/                    # ماژول‌های سراسری فرانت‌اند ادمین (Header, Nav, Footer)
-│   ├── inventory/              # مدیریت انبار فیزیکی، ثبت ورودی و اصلاح موجودی
-│   ├── orders/                 # چرخه حیات سفارش‌ها، فاکتورها و وضعیت مرسوله‌ها
-│   ├── product/                # تعریف کاتالوگ، برند، ویژگی‌ها و بارگذاری عکس
-│   ├── system_info/            # تنظیمات پویای هویت بصری، متادیتا و اطلاعات تماس
-│   └── index.php               # کنترلر اصلی ورود و دیسپچر پنل ادمین
-├── classes/                    # هسته منطق شی‌گرایی و پردازش داده‌ها (Business Layer)
-│   ├── DBConnection.php        # کپسوله‌سازی اتصال پایگاه داده و مدیریت نشست‌ها
-│   ├── Login.php               # ماژول احراز هویت، اعتبارسنجی گذرواژه و توکن‌ها
-│   ├── Master.php              # کنترلر متمرکز فرآیندهای CRUD اقلام و تراکنش‌ها
-│   └── SystemSettings.php      # مدیریت متغیرهای سراسری سیستم
-├── database/                   # اسناد پایگاه داده
-│   └── cbpos_db.sql            # اسکریپت ساخت جداول، روابط و داده‌های پایه
-├── dist/                       # دارایی‌های استاتیک فرانت‌اند (CSS, JS, Fonts, Vendors)
-├── uploads/                    # مخزن امن ذخیره‌سازی تصاویر محصولات و برندها
-├── cart.php                    # کنترلر و ماژول سبد خرید ناهمگام مشتری
-├── checkout.php                # فرآیند نهایی‌سازی سفارش، محاسبه هزینه و صدور فاکتور
-├── initialize.php              # تنظیمات بوت‌استرپینگ، روتینگ و لود ثابت‌های محیطی
-├── index.php                   # نقطه ورود و صفحه اصلی پورتال فروشگاه
-└── README.md                   # مستندات جامع مهندسی نرم‌افزار
+├── admin/                  # پنل مدیریت
+│   ├── home.php            # داشبورد مدیریتی
+│   ├── inc/                # هدر، منو و کامپوننت‌های ادمین
+│   ├── inventory/          # مدیریت موجودی انبار
+│   ├── orders/             # مدیریت سفارش‌ها
+│   ├── product/            # مدیریت محصولات
+│   ├── system_info/        # تنظیمات اطلاعات فروشگاه
+│   └── index.php           # ورود مدیران
+│
+├── classes/                # لایه منطق شیءگرا و دسترسی به داده
+│   ├── DBConnection.php    # اتصال به پایگاه داده
+│   ├── Login.php           # احراز هویت و مدیریت نشست
+│   ├── Master.php          # عملیات CRUD و فرآیندهای مرکزی
+│   └── SystemSettings.php  # تنظیمات سیستمی
+│
+├── database/               # اسکریپت پایگاه داده
+│   └── cbpos_db.sql
+│
+├── dist/                   # فایل‌های استاتیک CSS/JS/Fonts
+├── libs/                   # کتابخانه‌ها و افزونه‌های جانبی
+├── uploads/                # تصاویر بارگذاری‌شده محصولات
+│
+├── index.php               # صفحه اصلی فروشگاه
+├── initialize.php          # مقداردهی اولیه و تنظیمات عمومی
+├── cart.php                # سبد خرید
+├── checkout.php            # تسویه و ثبت سفارش
+├── products.php            # لیست و فیلتر محصولات
+└── README.md               # مستند پروژه
+```
 
-۶. مجموعه ۱۰ دیاگرام استاندارد مهندسی نرم‌افزار (PlantUML)
+---
 
-کلیه دیاگرام‌های ذیل مطابق با آخرین استاندارد مدل‌سازی UML طراحی شده‌اند. کدهای
-هر دیاگرام مستقلاً قابل کپی و اجرا در PlantUML Online Editor است.
+## 6. مجموعه ۱۰ دیاگرام مهندسی نرم‌افزار (PlantUML)
 
-دیاگرام ۱: نمودار موارد کاربرد جامع سامانه (Use Case Diagram)
+> 💡 **نحوه استفاده:**  
+> کد هر دیاگرام در بخش `<details>` آمده است. برای نمایش حرفه‌ای در GitHub:
+>
+> 1. کد PlantUML را کپی کنید.
+> 2. در [PlantUML Web Editor](https://editor.plantuml.com/) Paste کنید.
+> 3. خروجی PNG یا SVG بگیرید.
+> 4. فایل را در مسیر `docs/diagrams/` با نام پیشنهادی ذخیره کنید.
+> 5. README به‌صورت خودکار تصویر را نمایش خواهد داد.
 
-کاربرد: تفکیک وظایف و انتزاع موارد کاربرد دو بازیگر اصلی (مشتری و مدیر) همراه با
-روابط <<include>> و <<extend>>.
+---
 
+### دیاگرام ۱: نمودار موارد کاربرد جامع سامانه (Use Case Diagram)
+
+این دیاگرام تعاملات دو بازیگر اصلی **مشتری** و **مدیر** را به‌همراه سیستم پرداخت/فاکتور نشان می‌دهد و روابط `include` و `extend` را مشخص می‌کند.
+
+![دیاگرام ۱: Use Case Diagram](docs/diagrams/01-use-case.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۱: Use Case Diagram</summary>
+
+```plantuml
 @startuml
+left to right direction
 skinparam actorStyle awesome
 skinparam packageStyle rectangle
 skinparam roundcorner 10
-skinparam monochrome false
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
+skinparam usecase {
+  BackgroundColor #E8F4FF
+  BorderColor #0D6EFD
+  ArrowColor #495057
+}
 
-actor "مشتری فروشگاه (Client)" as Client #0D6EFD
-actor "مدیر سامانه (Admin)" as Admin #DC3545
-actor "درگاه پرداخت / مالی (Payment Gateway)" as Gateway #198754
+actor "مشتری (Client)" as Client #0D6EFD
+actor "مدیر (Admin)" as Admin #DC3545
+actor "سیستم پرداخت / فاکتور (Payment System)" as Payment #198754
 
-rectangle "سامانه فروشگاه آنلاین محصولات آرایشی و بهداشتی (CBPOS)" {
-  package "پورتال مشتریان" {
-    usecase "مرور کاتالوگ و دسته‌بندی‌ها" as UC_Browse
-    usecase "جستجو و فیلتر پیشرفته محصولات" as UC_Search
-    usecase "مدیریت سبد خرید (افزودن/حذف/تغییر)" as UC_Cart
-    usecase "ثبت نهایی سفارش و تسویه حساب" as UC_Checkout
-    usecase "احراز هویت (ورود / ثبت‌نام)" as UC_Auth
-    usecase "پیگیری وضعیت و تاریخچه سفارش‌ها" as UC_Track
-    usecase "اعتبارسنجی موجودی لحظه‌ای کالا" as UC_CheckStock
+rectangle "CBPOS: فروشگاه آنلاین محصولات آرایشی و بهداشتی" {
+  package "تعاملات مشتری" {
+    usecase "مرور کاتالوگ و فیلتر محصولات" as UC_Browse
+    usecase "جستجو بر اساس برند/دسته" as UC_Search
+    usecase "مشاهده موجودی تنوع کالا" as UC_Stock
+    usecase "مدیریت سبد خرید" as UC_Cart
+    usecase "احراز هویت / ثبت‌نام" as UC_Auth
+    usecase "ثبت سفارش و تسویه" as UC_Checkout
+    usecase "پیگیری وضعیت سفارش" as UC_Track
   }
 
-  package "پیشخوان مدیریت" {
-    usecase "ورود امن به پنل مدیریت" as UC_AdminLogin
-    usecase "مدیریت کاتالوگ و مشخصات کالا" as UC_ManageProducts
-    usecase "مدیریت انبارداری (Stock-In / Out)" as UC_ManageInventory
-    usecase "رسیدگی و تغییر وضعیت سفارشات" as UC_ManageOrders
-    usecase "پیکربندی هویت و متادیتای سیستم" as UC_Config
-    usecase "مشاهده داشبورد آماری و گزارش‌ها" as UC_Reports
+  package "مدیریت و انبار" {
+    usecase "ورود امن پنل مدیریت" as UC_AdminLogin
+    usecase "مدیریت محصولات و برندها" as UC_Products
+    usecase "مدیریت موجودی (Stock In/Out)" as UC_Inventory
+    usecase "مدیریت چرخه سفارش‌ها" as UC_Orders
+    usecase "پیکربندی اطلاعات فروشگاه" as UC_Settings
+    usecase "گزارش‌گیری فروش" as UC_Reports
   }
 }
 
 Client --> UC_Browse
 Client --> UC_Search
+Client --> UC_Stock
 Client --> UC_Cart
-Client --> UC_Checkout
 Client --> UC_Auth
+Client --> UC_Checkout
 Client --> UC_Track
 
 UC_Browse ..> UC_Search : <<extend>>
 UC_Checkout ..> UC_Auth : <<include>>
-UC_Checkout ..> UC_CheckStock : <<include>>
-UC_Checkout --> Gateway : انجام تراکنش مالی
+UC_Checkout ..> UC_Stock : <<include>>
+UC_Checkout --> Payment : پردازش مالی / صدور فاکتور
 
 Admin --> UC_AdminLogin
-Admin --> UC_ManageProducts
-Admin --> UC_ManageInventory
-Admin --> UC_ManageOrders
-Admin --> UC_Config
+Admin --> UC_Products
+Admin --> UC_Inventory
+Admin --> UC_Orders
+Admin --> UC_Settings
 Admin --> UC_Reports
 
-UC_ManageOrders ..> UC_ManageInventory : <<include>> بروزرسانی خودکار موجودی
+UC_Orders ..> UC_Inventory : <<include>>
 @enduml
+```
 
-دیاگرام ۲: نمودار کلاس‌های کلیدی و دامنه شی‌گرایی (Class Diagram)
+</details>
 
-کاربرد: نمایش ساختار شی‌گرا، کلاس‌های دامنه، کنترلر مرکزی MasterAction، انتزاع
-کاربران و روابط همبستگی.
+---
 
+### دیاگرام ۲: نمودار کلاس‌های کلیدی و دامنه شیءگرا (Class Diagram)
+
+این دیاگرام ساختار شیءگرای پروژه، کلاس‌های دسترسی به داده، کنترلرها و موجودیت‌های دامنه را نشان می‌دهد. هدف آن نمایش تفکیک مسئولیت‌ها بر پایه اصول SRP و SoC است.
+
+![دیاگرام ۲: Class Diagram](docs/diagrams/02-class-diagram.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۲: Class Diagram</summary>
+
+```plantuml
 @startuml
 skinparam classAttributeIconSize 0
 skinparam roundcorner 8
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
+skinparam class {
+  BackgroundColor #F8F9FA
+  BorderColor #2C3E50
+  ArrowColor #2C3E50
+}
 
 class DBConnection {
-    - host: string
-    - username: string
-    - password: string
-    - database: string
-    + conn: mysqli
-    + __construct()
-    + __destruct()
+  - host: String
+  - username: String
+  - password: String
+  - database: String
+  + conn: mysqli
+  + __construct()
+  + __destruct()
+  + query(sql: String, params: array): mysqli_result
+  + beginTransaction(): bool
+  + commit(): bool
+  + rollback(): bool
 }
 
 class SystemSettings {
-    - settings: array
-    + load_settings(): void
-    + set_info(field: string, val: string): bool
-    + info(field: string): string
+  - settings: array
+  + load(): void
+  + get(field: String): String
+  + set(field: String, value: String): bool
 }
 
 abstract class User {
-    # id: int
-    # firstname: string
-    # lastname: string
-    # username: string
-    # date_added: datetime
-    + {abstract} login(): bool
-    + {abstract} logout(): void
+  # id: int
+  # firstname: String
+  # lastname: String
+  # username: String
+  # passwordHash: String
+  # dateAdded: datetime
+  + {abstract} login(username: String, password: String): bool
+  + {abstract} logout(): void
+  + sanitize(input: String): String
 }
 
 class Administrator {
-    - role: int
-    + save_user(): int
-    + delete_user(id: int): bool
+  - role: int
+  + saveUser(data: array): int
+  + deleteUser(id: int): bool
+  + listUsers(): array
 }
 
 class ClientCustomer {
-    - contact: string
-    - address: text
-    - email: string
-    - status: int
-    + register(): bool
-    + update_profile(): bool
-    + view_order_history(): array
+  - email: String
+  - contact: String
+  - address: Text
+  - status: int
+  + register(data: array): bool
+  + updateProfile(data: array): bool
+  + getOrderHistory(): array
 }
 
 class MasterAction {
-    - db: mysqli
-    + save_category(): int
-    + save_brand(): int
-    + save_product(): int
-    + save_inventory(): int
-    + add_to_cart(): int
-    + update_cart_quantity(): bool
-    + place_order(): int
-    + update_order_status(): bool
+  - db: DBConnection
+  + saveCategory(data: array): int
+  + saveBrand(data: array): int
+  + saveProduct(data: array): int
+  + saveInventory(data: array): int
+  + addToCart(clientId: int, inventoryId: int, qty: double): int
+  + updateCartQuantity(cartId: int, qty: double): bool
+  + placeOrder(clientId: int, orderData: array): int
+  + updateOrderStatus(orderId: int, status: int): bool
 }
 
 class Product {
-    + id: int
-    + category_id: int
-    + brand_id: int
-    + name: string
-    + description: string
-    + status: int
-    + get_variants(): array
-    + get_current_stock(): int
+  + id: int
+  + categoryId: int
+  + brandId: int
+  + name: String
+  + description: Text
+  + status: int
+  + getVariants(): array
+  + getCurrentStock(): int
+}
+
+class Inventory {
+  + id: int
+  + productId: int
+  + variant: String
+  + quantity: double
+  + price: double
+  + lockForUpdate(): bool
+  + deduct(qty: double): bool
+}
+
+class Cart {
+  + id: int
+  + clientId: int
+  + inventoryId: int
+  + quantity: double
+  + clear(): bool
 }
 
 class Order {
-    + id: int
-    + client_id: int
-    + delivery_address: text
-    + payment_method: string
-    + total_amount: double
-    + status: int
-    + date_created: datetime
-    + get_items(): array
+  + id: int
+  + clientId: int
+  + deliveryAddress: Text
+  + paymentMethod: String
+  + totalAmount: double
+  + status: int
+  + paid: int
+  + getItems(): array
+  + markPaid(): bool
+}
+
+class OrderItem {
+  + id: int
+  + orderId: int
+  + inventoryId: int
+  + quantity: double
+  + price: double
 }
 
 User <|-- Administrator
 User <|-- ClientCustomer
-MasterAction --> DBConnection : بهره‌گیری از نشست دیتابیس
-MasterAction ..> Product : مدیریت کاتالوگ
-MasterAction ..> Order : مدیریت چرخه سفارش
-Order "1" *-- "many" Product : شامل اقلام
+
+MasterAction --> DBConnection : uses
+MasterAction ..> Product : manages
+MasterAction ..> Inventory : manages
+MasterAction ..> Cart : manages
+MasterAction ..> Order : processes
+
+Product "1" --> "0..*" Inventory : has variants
+Cart "many" --> "1" Inventory : references
+Order "1" *-- "many" OrderItem : contains
+OrderItem "many" --> "1" Inventory : references
+ClientCustomer "1" --> "many" Order : places
+ClientCustomer "1" --> "many" Cart : owns
+SystemSettings --> DBConnection : loads from
 @enduml
+```
 
-دیاگرام ۳: مدل داده‌ای و موجودیت-رابطه پایگاه داده (Entity Relationship Diagram - ERD)
+</details>
 
-کاربرد: نگاشت اسکیمای فیزیکی پایگاه داده بر اساس استاندارد نرمال‌سازی 3NF،
-کلیدهای اصلی و روابط خارجی.
+---
 
+### دیاگرام ۳: مدل داده‌ای و موجودیت–رابطه پایگاه داده (ERD)
+
+این دیاگرام ساختار نرمال‌شده جداول پایگاه داده، کلیدهای اصلی/خارجی و روابط بین موجودیت‌های اصلی سامانه را نشان می‌دهد.
+
+![دیاگرام ۳: ERD](docs/diagrams/03-erd.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۳: Entity Relationship Diagram</summary>
+
+```plantuml
 @startuml
 skinparam linetype ortho
 skinparam roundcorner 5
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
+skinparam entity {
+  BackgroundColor #F8F9FA
+  BorderColor #2C3E50
+}
 
 entity "system_info" as sys {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
   meta_field : text
   meta_value : text
 }
 
 entity "users" as users {
-  * id : int(50) <<PK>>
+  * id : int <<PK>>
   --
   firstname : varchar(250)
   lastname : varchar(250)
   username : text
   password : text
   avatar : text
-  type : tinyint(1)
+  type : tinyint
   date_added : datetime
 }
 
 entity "clients" as clients {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
   firstname : varchar(250)
   lastname : varchar(250)
@@ -386,290 +648,380 @@ entity "clients" as clients {
   email : text
   password : text
   default_delivery_address : text
-  status : tinyint(1)
+  status : tinyint
   date_created : datetime
 }
 
 entity "categories" as categories {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
   category : varchar(250)
   description : text
-  status : tinyint(1)
-  delete_flag : tinyint(1)
+  status : tinyint
+  delete_flag : tinyint
   date_created : datetime
 }
 
 entity "brands" as brands {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
   name : varchar(250)
   description : text
   image_path : text
-  status : tinyint(1)
-  delete_flag : tinyint(1)
+  status : tinyint
+  delete_flag : tinyint
   date_created : datetime
 }
 
 entity "products" as products {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
-  category_id : int(30) <<FK>>
-  brand_id : int(30) <<FK>>
+  category_id : int <<FK>>
+  brand_id : int <<FK>>
   name : varchar(250)
   description : text
-  status : tinyint(1)
-  delete_flag : tinyint(1)
+  status : tinyint
+  delete_flag : tinyint
   date_created : datetime
 }
 
 entity "inventory" as inventory {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
-  product_id : int(30) <<FK>>
+  product_id : int <<FK>>
   quantity : double
-  price : float
+  price : double
   variant : varchar(250)
   date_created : datetime
 }
 
 entity "cart" as cart {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
-  client_id : int(30) <<FK>>
-  inventory_id : int(30) <<FK>>
+  client_id : int <<FK>>
+  inventory_id : int <<FK>>
   quantity : double
   date_created : datetime
 }
 
 entity "orders" as orders {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
-  client_id : int(30) <<FK>>
+  client_id : int <<FK>>
   delivery_address : text
   total_amount : double
   payment_method : varchar(100)
-  status : tinyint(1)
-  paid : tinyint(1)
+  status : tinyint
+  paid : tinyint
   date_created : datetime
 }
 
 entity "order_items" as order_items {
-  * id : int(30) <<PK>>
+  * id : int <<PK>>
   --
-  order_id : int(30) <<FK>>
-  inventory_id : int(30) <<FK>>
+  order_id : int <<FK>>
+  inventory_id : int <<FK>>
   quantity : double
   price : double
   date_created : datetime
 }
 
-categories ||--o{ products : "طبقه‌بندی"
-brands ||--o{ products : "تولید برند"
-products ||--o{ inventory : "تنوع و موجودی"
-clients ||--o{ cart : "مالکیت سبد"
-inventory ||--o{ cart : "قلم سبد"
-clients ||--o{ orders : "ثبت سفارش"
-orders ||--|{ order_items : "شامل اقلام"
-inventory ||--o{ order_items : "تخصیص انبار"
+categories ||--o{ products : "طبقه‌بندی می‌کند"
+brands ||--o{ products : "تولید می‌کند"
+products ||--o{ inventory : "موجودی دارد"
+clients ||--o{ cart : "مالک سبد است"
+inventory ||--o{ cart : "در سبد قرار می‌گیرد"
+clients ||--o{ orders : "سفارش ثبت می‌کند"
+orders ||--|{ order_items : "شامل اقلام است"
+inventory ||--o{ order_items : "به فاکتور ارجاع می‌شود"
 @enduml
+```
 
-دیاگرام ۴: نمودار توالی احراز هویت و امنیت نشست‌ها (Authentication Sequence Diagram)
+</details>
 
-کاربرد: تحلیل فرآیند ورود امن، مقابله با Session Fixation، اعتبارسنجی CSRF و
-تطابق هش کلمه عبور.
+---
 
+### دیاگرام ۴: نمودار توالی احراز هویت و امنیت نشست‌ها (Authentication Sequence Diagram)
+
+این دیاگرام فرآیند ورود کاربر/مدیر را با تأکید بر CSRF، Prepared Statement، `password_verify()` و جلوگیری از Session Fixation نشان می‌دهد.
+
+![دیاگرام ۴: Authentication Sequence Diagram](docs/diagrams/04-authentication-sequence.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۴: Authentication Sequence Diagram</summary>
+
+```plantuml
 @startuml
 autonumber
 skinparam roundcorner 5
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
+skinparam sequence {
+  ArrowColor #2C3E50
+  LifeLineBorderColor #2C3E50
+  ParticipantBackgroundColor #F8F9FA
+}
 
 actor "کاربر / مشتری" as User #0D6EFD
 boundary "فرم ورود (Login UI)" as UI
-control "کنترلر احراز هویت (Login.php)" as AuthCtrl
-entity "پایگاه داده (MariaDB/MySQL)" as DB
-control "مدیریت نشست (PHP Session Engine)" as SessionMgr
+control "Login.php\n(Auth Controller)" as AuthCtrl
+database "MySQL / MariaDB" as DB
+control "Session Engine" as Session
 
-User -> UI: ورود نام کاربری و رمز عبور
+User -> UI : Username, Password, CSRF Token
 activate UI
-UI -> AuthCtrl: ارسال درخواست POST همراه با توکن امنیتی
+UI -> AuthCtrl : POST login request
 activate AuthCtrl
 
-AuthCtrl -> AuthCtrl: اعتبارسنجی توکن ضد جعل (Verify CSRF Token)
-alt توکن معتبر نیست
-    AuthCtrl --> UI: خطای عدم انطباق توکن امنیتی (403 Forbidden)
-    UI --> User: نمایش هشدار نشست مشکوک
-else توکن معتبر است
-    AuthCtrl -> DB: پرس‌وجوی کاربر با Prepared Statement
-    activate DB
-    DB --> AuthCtrl: بازگردانی رکورد کاربر (هش رمز عبور)
-    deactivate DB
+AuthCtrl -> AuthCtrl : Verify CSRF token
 
-    AuthCtrl -> AuthCtrl: ارزیابی هش پسورد با تابع password_verify
-    alt رمز عبور منطبق نیست
-        AuthCtrl --> UI: خطا: مشخصات ورود معتبر نمی‌باشد
-        UI --> User: نمایش پیغام عدم احراز هویت
-    else اطلاعات کاربری صحیح است
-        AuthCtrl -> SessionMgr: بازتولید شناسه نشست (session_regenerate_id)
-        activate SessionMgr
-        SessionMgr --> AuthCtrl: شناسه نشست جدید و ایمن
-        deactivate SessionMgr
+alt Invalid CSRF token
+  AuthCtrl --> UI : 403 Security token mismatch
+  UI --> User : Show security error
+else Valid token
+  AuthCtrl -> DB : SELECT user by username (Prepared Statement)
+  activate DB
+  DB --> AuthCtrl : User record + password hash
+  deactivate DB
 
-        AuthCtrl -> SessionMgr: ثبت اطلاعات کاربر و رول در آرایه سراسری $_SESSION
-        AuthCtrl --> UI: پاسخ موفقیت‌آمیز (HTTP 200 / Status: Success)
-        deactivate AuthCtrl
-        UI --> User: هدایت کاربر به پیشخوان کاربری
-        deactivate UI
-    end
+  AuthCtrl -> AuthCtrl : password_verify(input, hash)
+
+  alt Wrong password
+    AuthCtrl --> UI : Invalid username/password
+    UI --> User : Show login error
+  else Correct credentials
+    AuthCtrl -> Session : session_regenerate_id(true)
+    activate Session
+    Session --> AuthCtrl : New secure session ID
+    deactivate Session
+
+    AuthCtrl -> Session : Store userId, role, csrf token
+    AuthCtrl --> UI : Success + redirect URL
+    UI --> User : Redirect to dashboard/store
+  end
 end
+
+deactivate AuthCtrl
+deactivate UI
 @enduml
+```
 
-دیاگرام ۵: نمودار توالی ثبت سفارش، قفل‌گذاری موجودی و پرداخت (Checkout Sequence Diagram)
+</details>
 
-کاربرد: مدلسازی تراکنش‌های مالی، رزرو موجودی کالا و قفل اتمیک پایگاه داده جهت
-جلوگیری از Overselling.
+---
 
+### دیاگرام ۵: نمودار توالی ثبت سفارش، قفل‌گذاری موجودی و پرداخت (Checkout Sequence Diagram)
+
+این دیاگرام یکی از مهم‌ترین بخش‌های پروژه است؛ زیرا یکپارچگی داده‌ها در فرآیند کسر موجودی و ثبت سفارش را با تراکنش ACID نشان می‌دهد.
+
+![دیاگرام ۵: Checkout Sequence Diagram](docs/diagrams/05-checkout-sequence.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۵: Checkout Sequence Diagram</summary>
+
+```plantuml
 @startuml
 autonumber
 skinparam roundcorner 5
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
+skinparam sequence {
+  ArrowColor #2C3E50
+  ParticipantBackgroundColor #F8F9FA
+}
 
 actor "مشتری (Client)" as Client #0D6EFD
-boundary "فرم تسویه (Checkout Page)" as View
-control "کنترلر سفارشات (Master.php)" as Controller
-database "پایگاه داده (MySQL / MariaDB)" as DB
-boundary "درگاه پرداخت (Payment Gateway)" as Gateway
+boundary "Checkout Page" as View
+control "Master.php\n(Order Controller)" as Controller
+database "MySQL / MariaDB" as DB
+boundary "Payment / Invoice Module" as Gateway
 
-Client -> View: تأیید آدرس گیرنده و شیوه پرداخت
+Client -> View : Confirm address + payment method
 activate View
-View -> Controller: فراخوانی متد place_order(order_data)
+View -> Controller : place_order(orderData, cartItems)
 activate Controller
 
-Controller -> DB: آغاز تراکنش سیستمی (START TRANSACTION)
+Controller -> DB : START TRANSACTION
 activate DB
 
-loop بررسی تک‌تک اقلام سبد خرید
-    Controller -> DB: استعلام موجودی با قفل سطری (SELECT ... FOR UPDATE)
-    DB --> Controller: موجودی واقعی قلم کالا در انبار
-    alt موجودی انبار کمتر از تعداد درخواستی است
-        Controller -> DB: ابطال تراکنش (ROLLBACK)
-        Controller --> View: خطای کسری موجودی کالا
-        View --> Client: نمایش هشدار اتمام موجودی قلم انتخابی
-    end
+loop For each cart item
+  Controller -> DB : SELECT quantity FROM inventory WHERE id=? FOR UPDATE
+  DB --> Controller : current stock
+  Controller -> Controller : check stock >= requested qty
 end
 
-Controller -> DB: درج اطلاعات کلان سفارش در جدول orders
-DB --> Controller: دریافت شناسه فاکتور (order_id)
+alt All items available
+  Controller -> DB : INSERT INTO orders (...)
+  DB --> Controller : order_id
 
-loop درج اقلام در جدول order_items و اصلاح انبار
-    Controller -> DB: ثبت ردیف اقلام خریداری‌شده
-    Controller -> DB: کسر موجودی از جدول inventory
+  loop For each order item
+    Controller -> DB : INSERT INTO order_items (...)
+    Controller -> DB : UPDATE inventory SET quantity = quantity - ?
+  end
+
+  Controller -> DB : DELETE FROM cart WHERE client_id=?
+  Controller -> DB : COMMIT TRANSACTION
+
+  Controller --> View : Success + invoice number
+  View -> Gateway : Generate receipt / tracking code
+  Gateway --> View : Payment/reference status
+  View --> Client : Show final purchase receipt
+
+else Insufficient stock
+  Controller -> DB : ROLLBACK TRANSACTION
+  Controller --> View : Error: out of stock
+  View --> Client : Show stock shortage message
 end
 
-Controller -> DB: پاک‌سازی رکوردهای جاری کاربر از جدول cart
-Controller -> DB: ثبت نهایی تراکنش (COMMIT TRANSACTION)
 deactivate DB
-
-Controller --> View: تأیید ثبت سفارش و صدور شماره پیگیری
 deactivate Controller
-View --> Client: نمایش فاکتور و رسید نهایی خرید
 deactivate View
 @enduml
+```
 
-دیاگرام ۶: نمودار فعالیت گردش کار خرید از سبد تا تسویه (Checkout Activity Diagram)
+</details>
 
-کاربرد: فرآیند گام‌به‌گام خرید از دید مشتری و پردازش‌های پشت صحنه سرور به تفکیک
-خطوط شناوری.
+---
 
+### دیاگرام ۶: نمودار فعالیت گردش کار خرید از سبد تا تسویه (Checkout Activity Diagram)
+
+این دیاگرام با Swimlane، مسئولیت‌های مشتری، سرور PHP و پایگاه داده را در فرآیند خرید تفکیک می‌کند.
+
+![دیاگرام ۶: Checkout Activity Diagram](docs/diagrams/06-checkout-activity.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۶: Checkout Activity Diagram</summary>
+
+```plantuml
 @startuml
 skinparam roundcorner 10
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
 
-|مشتری فروشگاه|
+|Client|
 start
-:مشاهده کاتالوگ و صفحه جزئیات کالا;
-:انتخاب مشخصه کالا (رنگ، سایز، اسانس);
-:کلیک بر روی دکمه افزودن به سبد خرید;
+:View product details and select variant;
+:Add product to cart;
 
-|مفسر سرور و سیستم|
-:بررسی وجود نشست معتبر کاربر;
-if (کاربر وارد سیستم شده است؟) then (بله)
-  :افزودن قلم به جدول دیتابیس سبد خرید;
-else (خیر)
-  :ذخیره‌سازی در سشن موقت و هدایت به لاگین;
+|PHP Web Server|
+if (Valid user session?) then (yes)
+  :Save cart record in database;
+else (no)
+  :Store temporary session or redirect to login;
 endif
 
-|مشتری فروشگاه|
-:بازدید از سبد خرید و کلیک بر روی تسویه حساب;
-:ورود نشانی تحویل و شیوه پرداخت;
-:تأیید نهایی و ارسال فرم تسویه;
+|Client|
+:Open shopping cart;
+:Proceed to checkout;
+:Enter delivery address and payment method;
+:Confirm final order;
 
-|مفسر سرور و سیستم|
-:آغاز تراکنش امن اتمیک (DB Transaction);
-:ارزیابی سطح موجودی واقعی در انبار;
+|PHP Web Server|
+:Begin database transaction;
 
-if (موجودی اقلام در انبار کافی است؟) then (بله)
-  :درج اطلاعات در جدول orders;
-  :ایجاد ردیف‌های اقلام در order_items;
-  :کسر اتوماتیک تعداد از جدول inventory;
-  :حذف اقلام سفارش از سبد خرید;
-  :تأیید تراکنش دیتابیس (Commit);
-  |مشتری فروشگاه|
-  :نمایش فاکتور فروش و کد پیگیری مرسوله;
+|Database|
+:Lock inventory rows using FOR UPDATE;
+
+|PHP Web Server|
+if (All requested stocks are sufficient?) then (yes)
+  :Insert order into orders table;
+  :Insert order items into order_items table;
+  :Deduct quantities from inventory table;
+  :Remove purchased items from cart table;
+  :Commit transaction;
+
+  |Client|
+  :Show receipt, order ID and tracking status;
   stop
-else (خیر)
-  |مفسر سرور و سیستم|
-  :ابطال کامل تراکنش (Rollback);
-  |مشتری فروشگاه|
-  :نمایش پیغام کسری موجودی کالا در انبار;
+
+else (no)
+  |PHP Web Server|
+  :Rollback transaction;
+
+  |Client|
+  :Show out-of-stock error and ask to edit cart;
   stop
 endif
 @enduml
+```
 
-دیاگرام ۷: نمودار فعالیت مدیریت زنجیره تأمین و انبارداری (Inventory Activity Diagram)
+</details>
 
-کاربرد: گردش کار انبارداری در پنل مدیریت، ثبت ورود محموله جدید کالا و هشدارهای
-آستانه حداقل موجودی.
+---
 
+### دیاگرام ۷: نمودار فعالیت مدیریت زنجیره تأمین و انبارداری (Inventory Activity Diagram)
+
+این دیاگرام فرآیند Stock In / Stock Out، کنترل تنوع کالا و هشدار موجودی کم را نشان می‌دهد.
+
+![دیاگرام ۷: Inventory Activity Diagram](docs/diagrams/07-inventory-activity.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۷: Inventory Activity Diagram</summary>
+
+```plantuml
 @startuml
 skinparam roundcorner 10
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
 
+|Admin|
 start
-:ورود مدیر به بخش مدیریت انبار (Inventory Management);
-:مشاهده وضعیت موجودی کالاها و تنوع‌ها;
+:Login to admin panel;
+:Open inventory management module;
+:View product list with variants and stock levels;
 
-if (نوع عملیات انبارداری چیست؟) then (شارژ محموله جدید - Stock In)
-  :انتخاب محصول و مشخص کردن تنوع (Variant);
-  :ورود تعداد فیزیکی وارد شده و بهای واحد;
-  :اعتبارسنجی مقادیر مثبت عددی;
-  :درج سابقه شارژ انبار در جدول inventory;
-  :افزایش شاخص موجودی آماده فروش;
-else (تعدیل یا ابطال موجودی - Damaged / Expired)
-  :ثبت علت تعدیل (آسیب‌دیدگی فیزیکی، انقضا، خطای انبارگردانی);
-  :اعمال تراکنش کاهش تعداد از inventory;
+if (Operation type?) then (Stock In)
+  :Select product and variant;
+  :Enter incoming quantity and price;
+  
+  |PHP Server|
+  :Validate positive numeric values;
+  
+  |Database|
+  :Insert/update inventory record;
+  :Increase total stock;
+
+else (Stock Out / Adjustment)
+  :Select product and variant;
+  :Enter adjustment reason (damage, expiry, audit mismatch);
+  :Enter outgoing quantity;
+  
+  |PHP Server|
+  :Validate quantity and business rules;
+  
+  |Database|
+  :Decrease inventory quantity;
 endif
 
-:بررسی حد آستانه حداقل موجودی کالا (Safety Stock);
-if (موجودی کمتر از حد آستانه است؟) then (بله)
-  :فعال‌سازی نشانگر هشدار قرمز در پیشخوان مدیر (Low Stock);
-else (خیر)
-  :نمایش وضعیت عادی عرضه کالا در کاتالوگ;
+|PHP Server|
+:Check safety stock threshold;
+
+if (Stock below threshold?) then (yes)
+  :Mark item as low stock warning;
+else (no)
+  :Keep normal availability status;
 endif
 
-:بروزرسانی شاخص‌های آماری انبار در داشبورد;
+|Admin|
+:Refresh dashboard indicators and reports;
 stop
 @enduml
+```
 
-دیاگرام ۸: نمودار ماشین حالت چرخه حیات سفارش (Order Lifecycle State Machine)
+</details>
 
-کاربرد: مدلسازی انتقال حالت‌های معتبر سفارش، اعتبارسنجی گذارها و بازگردانی
-خودکار کالا در صورت لغو سفارش.
+---
 
+### دیاگرام ۸: نمودار ماشین حالت چرخه حیات سفارش (Order Lifecycle State Machine)
+
+این دیاگرام وضعیت‌های معتبر سفارش و گذارهای مجاز بین آن‌ها را نشان می‌دهد؛ از ثبت اولیه تا تحویل یا لغو و بازگشت کالا به انبار.
+
+![دیاگرام ۸: Order State Machine](docs/diagrams/08-order-state-machine.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۸: Order Lifecycle State Machine</summary>
+
+```plantuml
 @startuml
 skinparam state {
   BackgroundColor #F8F9FA
@@ -680,93 +1032,108 @@ skinparam state {
 }
 skinparam roundcorner 8
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
 
-[*] --> ثبت_شده_در_انتظار : مشتری سفارش را تکمیل می‌کند
+[*] --> Pending : Customer completes order
 
-state ثبت_شده_در_انتظار : وضعیت 0 (Pending)\nامکان ویرایش آدرس یا لغو توسط خریدار
-state تایید_شده : وضعیت 1 (Confirmed)\nسفارش تایید مالی شده و به انبار ارسال گردید
-state بسته‌بندی_شده : وضعیت 2 (Packed)\nفاکتور چاپ شده و بارکد مرسوله صادر شد
-state ارسال_شده : وضعیت 3 (On_Delivery)\nبسته به حامل پستی/پیک تحویل داده شد
-state تحویل_گردید : وضعیت 4 (Delivered)\nمشتری دریافت مرسوله را تأیید کرد
-state لغو_شده : وضعیت 5 (Cancelled)\nموجودی به انبار بازگردانده می‌شود
+state "0 | Pending\n(ثبت‌شده در انتظار)" as Pending
+state "1 | Confirmed\n(تأییدشده)" as Confirmed
+state "2 | Packed\n(بسته‌بندی‌شده)" as Packed
+state "3 | Shipped\n(ارسال‌شده)" as Shipped
+state "4 | Delivered\n(تحویل‌شده)" as Delivered
+state "5 | Cancelled\n(لغوشده)" as Cancelled
 
-ثبت_شده_در_انتظار --> تایید_شده : تأیید تراکنش مالی یا اپراتور
-ثبت_شده_در_انتظار --> لغو_شده : انصراف خریدار / عدم تایید پرداخت
-
-تایید_شده --> بسته‌بندی_شده : پردازش و بارکدگذاری در انبار
-تایید_شده --> لغو_شده : اعلام عدم امکان تأمین فیزیکی
-
-بسته‌بندی_شده --> ارسال_شده : تحویل مرسوله به شرکت پست/پیک
-ارسال_شده --> تحویل_گردید : وصول تأییدیه دریافت مشتری
-
-لغو_شده --> [*] : برگشت کالا به موجودی انبار (Restore Stock)
-تحویل_گردید --> [*] : مختومه شدن چرخه مالی سفارش
+Pending --> Confirmed : Sales operator confirms order
+Pending --> Cancelled : Customer cancels or payment not approved
+Confirmed --> Packed : Warehouse assigns barcode and packs items
+Confirmed --> Cancelled : Physical supply not possible
+Packed --> Shipped : Parcel handed to courier/postal service
+Shipped --> Delivered : Customer confirms receipt
+Cancelled --> [*] : Return items to inventory (Stock Restored)
+Delivered --> [*] : Close financial cycle
 @enduml
+```
 
-دیاگرام ۹: نمودار قطعات و معماری لایه‌ای سامانه (Component Diagram)
+</details>
 
-کاربرد: ساختاربندی اجزای سامانه به تفکیک لایه‌های ارائه (Presentation)، منطق
-کسب‌وکار و دسترسی به داده.
+---
 
+### دیاگرام ۹: نمودار قطعات و معماری لایه‌ای سامانه (Component Diagram)
+
+این دیاگرام جداسازی لایه‌های رابط کاربری، منطق تجاری، دسترسی به داده و ماندگاری را نشان می‌دهد.
+
+![دیاگرام ۹: Component Diagram](docs/diagrams/09-component-diagram.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۹: Component Diagram</summary>
+
+```plantuml
 @startuml
 skinparam componentStyle uml2
 skinparam roundcorner 8
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
-
-package "لایه ارائه و فرانت‌اند (Presentation Layer)" {
-  [قالب پورتال مشتریان - Storefront UI] as ClientUI
-  [پیشخوان مدیریت - AdminLTE Dashboard] as AdminUI
-  [موتور ارتباط ناهمگام - AJAX Engine] as AjaxEngine
+skinparam defaultFontName "Tahoma"
+skinparam package {
+  BackgroundColor #F8F9FA
+  BorderColor #2C3E50
 }
 
-package "لایه منطق تجاری (Business Logic Layer)" {
-  [کنترلر احراز هویت - Login Module] as AuthComp
-  [موتور مدیریت کاتالوگ - Catalog Master] as CatalogComp
-  [کنترلر سفارشات - Order Engine] as OrderComp
-  [مدیر تنظیمات سیستم - System Settings] as ConfigComp
+package "Presentation Layer" {
+  [Storefront UI] as ClientUI
+  [Admin Dashboard] as AdminUI
+  [AJAX / Fetch Engine] as Ajax
 }
 
-package "لایه دسترسی و یکپارچگی داده (Data Access Layer)" {
-  [کلاس اتصال دیتابیس - DBConnection] as DBLayer
-  [ماژول فشرده‌سازی عکس - GD Image Handler] as ImgHandler
-  interface "MySQL Driver (mysqli/PDO)" as DriverInterface
+package "Business Logic Layer" {
+  [Login Controller] as Auth
+  [Catalog Master] as Catalog
+  [Cart & Checkout Controller] as OrderEngine
+  [System Settings Controller] as Config
 }
 
-database "لایه ذخیره‌سازی و پایگاه داده (Storage Layer)" {
-  folder "سیستم فایل محلی سرور" {
-    [دایرکتوری بارگذاری فایل‌ها - /uploads/] as UploadStore
+package "Data Access Layer" {
+  [DBConnection Wrapper] as DBLayer
+  [Image Handler (GD)] as Img
+  interface "MySQLi / PDO Driver" as Driver
+}
+
+package "Persistence Layer" {
+  folder "Local File Storage" {
+    [Upload Directory] as UploadStore
   }
-  database "بانک اطلاعاتی رابطه‌ای (MariaDB)" {
-    [اسکیمای جداول - cbpos_db] as Tables
-  }
+  database "cbpos_db (MariaDB/MySQL)" as RDBMS
 }
 
-ClientUI ..> AjaxEngine : ارسال اکشن‌های کاربری
-AdminUI ..> AjaxEngine : دستورات پنل ادمین
-
-AjaxEngine ..> AuthComp : اعتبارسنجی نشست
-AjaxEngine ..> CatalogComp : درخواست اقلام
-AjaxEngine ..> OrderComp : ثبت سفارش
-
-CatalogComp ..> ImgHandler : بهینه‌سازی و ذخیره عکس
-ImgHandler ..> UploadStore : انتقال تصویر به فایل‌سیستم
-
-AuthComp ..> DBLayer : استعلام اطلاعات کاربر
-CatalogComp ..> DBLayer : عملیات CRUD کالاها
-OrderComp ..> DBLayer : کنترل تراکنش و قفل انبار
-ConfigComp ..> DBLayer : فراخوانی تنظیمات
-
-DBLayer ..> DriverInterface : پروتکل ارتباطی با دیتابیس
-DriverInterface ..> Tables : اجرای کوئری‌های بهینه‌سازی‌شده
+ClientUI ..> Ajax : sends user events
+AdminUI ..> Ajax : sends admin commands
+Ajax ..> Auth : login/session actions
+Ajax ..> Catalog : product requests
+Ajax ..> OrderEngine : cart/checkout actions
+Catalog ..> Img : resize/optimize images
+Img ..> UploadStore : stores media files
+Auth ..> DBLayer : validates users
+Catalog ..> DBLayer : reads/writes catalog data
+OrderEngine ..> DBLayer : order transactions
+Config ..> DBLayer : loads system settings
+DBLayer ..> Driver : establishes DB connection
+Driver ..> RDBMS : executes SQL queries
 @enduml
+```
 
-دیاگرام ۱۰: نمودار استقرار بستر سخت‌افزاری و نرم‌افزاری در XAMPP (Deployment Diagram)
+</details>
 
-کاربرد: نمایش زیرساخت استقرار سامانه بر بستر پشته محلی XAMPP، ارتباطات پروتکل و
-پورت‌های شبکه.
+---
 
+### دیاگرام ۱۰: نمودار استقرار بستر سخت‌افزاری و نرم‌افزاری در XAMPP (Deployment Diagram)
+
+این دیاگرام توپولوژی اجرای محلی پروژه روی XAMPP را نشان می‌دهد: مرورگر کلاینت، Apache، PHP Runtime، MariaDB/MySQL و File System.
+
+![دیاگرام ۱۰: Deployment Diagram](docs/diagrams/10-deployment-diagram.png)
+
+<details>
+<summary>📐 کد PlantUML — دیاگرام ۱۰: Deployment Diagram</summary>
+
+```plantuml
 @startuml
 skinparam node {
   BackgroundColor #F8F9FA
@@ -775,124 +1142,226 @@ skinparam node {
 skinparam artifactBackgroundColor #FFFFFF
 skinparam roundcorner 8
 skinparam shadowing false
-skinparam defaultFontName "Segoe UI", "Tahoma"
+skinparam defaultFontName "Tahoma"
 
-node "کلاینت کاربری / دستگاه متقاضی (Client Station)" as ClientStation {
-  artifact "مرورگر مدرن وب\n(Chrome, Firefox, Safari)" as WebBrowser
+node "Client PC / Mobile" as Client {
+  artifact "Modern Browser\n(Chrome / Firefox / Edge)" as Browser
 }
 
-node "سرور میزبانی محلی (Local Server - XAMPP Environment)" as XamppNode {
-  node "وب‌سرور آپاچی (Apache 2.4 - Port 80 / 443)" as ApacheServer {
-    artifact "ماژول بازنویسی آدرس\n(mod_rewrite)" as ModRewrite
-    artifact "مدیریت امنیت نشست\n(Session Security Module)" as SecModule
+node "XAMPP Local Server" as XAMPP {
+  node "Apache HTTP Server\n(Port 80/443)" as Apache {
+    artifact "mod_rewrite" as Rewrite
+    artifact "Session Security Module" as Sec
   }
 
-  node "موتور اجرایی زبان (PHP 8.x Runtime Engine)" as PHPRuntime {
-    artifact "پردازشگر تصاویر (GD Library Extension)" as GDLib
-    artifact "درایور ارتباط دیتابیس (mysqli / PDO Driver)" as MysqlDriver
-    artifact "هسته کدهای فروشگاه\n(CBPOS Application Codebase)" as AppCode
+  node "PHP Runtime\n(Zend Engine 7.4 - 8.2)" as PHP {
+    artifact "GD Library" as GD
+    artifact "MySQLi / PDO Driver" as Driver
+    artifact "CBPOS PHP OOP Codebase" as App
   }
 
-  node "سرور بانک اطلاعاتی (MariaDB Engine - Port 3306)" as DBEngine {
-    database "پایگاه داده پروژه\n(cbpos_db Schema)" as DBCBPOS
+  node "MariaDB / MySQL Server\n(Port 3306)" as DBServer {
+    database "cbpos_db" as DBSchema
   }
 
-  folder "سیستم فایل هارد دیسک (Local Storage)" {
-    file "مسیر ریشه کدهای برنامه\n(C:/xampp/htdocs/cbpos/)" as AppDir
-    file "مخزن تصاویر بارگذاری شده\n(C:/xampp/htdocs/cbpos/uploads/)" as UploadsDir
+  folder "Local File System" {
+    file "CBPOS Application Directory" as AppDir
+    file "Uploads Directory" as UploadDir
   }
 }
 
-WebBrowser -- ApacheServer : ارتباط وب [HTTP/HTTPS - Port 80]
-ApacheServer -- PHPRuntime : مفسر کدهای سمت سرور (mod_php)
-AppCode -- GDLib : بهینه‌سازی تصاویر کالاها
-AppCode -- MysqlDriver : استعلام داده
-MysqlDriver -- DBEngine : پروتکل سوکت محلی TCP/IP [Port 3306]
-DBEngine -- DBCBPOS : خواندن/نوشتن در دیسک
-PHPRuntime -- AppDir : بارگذاری فایل‌های سورس پروژه
-PHPRuntime -- UploadsDir : بارگذاری و دسترسی تصاویر
+Browser --> Apache : HTTP / HTTPS
+Apache --> PHP : executes PHP scripts
+App --> GD : image processing
+App --> Driver : SQL queries
+Driver --> DBServer : TCP/IP Port 3306
+DBServer --> DBSchema : database I/O
+PHP --> AppDir : reads application source
+PHP --> UploadDir : reads/writes product images
 @enduml
+```
 
-۷. ماتریس تحلیل امنیتی بر پایه استاندارد OWASP Top 10
+</details>
 
-یکی از دستاوردهای علمی این پروژه، شناسایی و برطرف‌سازی ریشه‌ای آسیب‌پذیری‌های
-امنیتی رایج است:
+---
 
-+-------------------------+-----------------------------------+-----------------------------------+
-| آسیب‌پذیری استاندارد     | وضعیت در کد پایه (Insecure)       | مکانیزم دفاعی در این پروژه (Secure)|
-+-------------------------+-----------------------------------+-----------------------------------+
-| A03: Injection (SQLi)   | رشته خام در کوئری:                | استفاده از کوئری پارامتریک:       |
-|                         | WHERE user = '$_POST[user]'       | prepare("WHERE user = ?")         |
-+-------------------------+-----------------------------------+-----------------------------------+
-| A02: Cryptographic      | الگوریتم شکسته شده:               | استاندارد ایمن BCRYPT:            |
-|      Failures           | md5($_POST['pass'])               | password_hash($pass, BCRYPT)      |
-+-------------------------+-----------------------------------+-----------------------------------+
-| A07: Identification &   | شناسه سشن استاتیک پس از لاگین     | بازتولید سشن و ویژگی‌های کوکی:    |
-|      Authentication     | و مستعد Session Fixation          | session_regenerate_id(true)       |
-+-------------------------+-----------------------------------+-----------------------------------+
-| A01: Broken Access      | عدم اعتبارسنجی نوع فایل در آپلود  | بررسی فرمت MIME و بازتولید رندوم  |
-|      Control            | و امکان بارگذاری وب‌شل PHP        | نام فایل و حذف دسترسی Execute     |
-+-------------------------+-----------------------------------+-----------------------------------+
+## 7. ارزیابی امنیتی و نگاشت به OWASP Top 10
 
-۸. گالری تصاویر محیط برنامه (رابط کاربری کاربر و پنل مدیریت)
+در این پروژه تلاش شده است که مهم‌ترین ریسک‌های امنیتی اپلیکیشن‌های وب بر اساس چارچوب **OWASP Top 10** شناسایی و کاهش یابند.
 
-[!NOTE] برای نمایش تصاویر در گزارش نهایی، اسکرین‌شات‌های تهیه شده از مسیر
-http://localhost/cbpos/ را در پوشه docs/screenshots/ ذخیره نمایید.
+### 7.1. A03: Injection — جلوگیری از SQL Injection
 
-بخش اول: رابط کاربری مشتری و فروشگاه آنلاین (Storefront)
+#### الگوی ناامن در کد پایه
 
-| کاتالوگ فروشگاه و فیلترینگ اقلام                              | مدیریت سبد خرید ناهمگام (AJAX Cart)                              |
-| :-----------------------------------------------------------: | :--------------------------------------------------------------: |
-| ![کاتالوگ محصولات](docs/screenshots/client-catalog.png)       | ![سبد خرید آنلاین](docs/screenshots/client-cart.png)             |
-| *مرور محصولات بر اساس نشان تجاری و دسته‌بندی با نمایش موجودی* | *محاسبه دینامیک هزینه‌ها، کنترل سقف سفارش و به‌روزرسانی لحظه‌ای* |
+```php
+$query = "SELECT * FROM users WHERE username = '" . $_POST['username'] . "'";
+```
 
-| فرم نهایی‌سازی سفارش و تسویه                             | پیشخوان پیگیری وضعیت سفارشات                            |
-| :------------------------------------------------------: | :-----------------------------------------------------: |
-| ![صفحه تسویه حساب](docs/screenshots/client-checkout.png) | ![تاریخچه سفارشات](docs/screenshots/client-orders.png)  |
-| *ورود اطلاعات نشانی پستی، انتخاب درگاه و ثبت کد پیگیری*  | *رهگیری فرآیند ۵ مرحله‌ای پردازش مرسوله و نمایش فاکتور* |
+#### الگوی اصلاح‌شده
 
-بخش دوم: پیشخوان مرکزی مدیریت و کنترل انبار (Admin Dashboard)
+```php
+$stmt = $this->conn->prepare("SELECT id, password, type FROM users WHERE username = ?");
+$stmt->bind_param("s", $sanitized_username);
+$stmt->execute();
+$result = $stmt->get_result();
+```
 
-| داشبورد آماری و شاخص‌های تحلیلی                               | ماژول مدیریت کاتالوگ محصولات                                 |
-| :-----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![داشبورد آماری ادمین](docs/screenshots/admin-dashboard.png)  | ![مدیریت محصولات ادمین](docs/screenshots/admin-products.png) |
-| *نمایش کل فروش، سفارش‌های جاری و کالاهای در معرض اتمام انبار* | *تعریف اقلام، افزودن تنوع‌ها، قیمت‌گذاری و مدیریت برندها*    |
+---
 
-| ماژول مدیریت انبار و زنجیره تأمین                       | کنترل وضعیت و پردازش سفارشات                                |
-| :-----------------------------------------------------: | :---------------------------------------------------------: |
-| ![مدیریت انبار](docs/screenshots/admin-inventory.png)   | ![کنترل سفارشات](docs/screenshots/admin-orders.png)         |
-| *ثبت شارژ انبار (Stock-In)، کنترل کسری و آستانه موجودی* | *تغییر وضعیت گام‌به‌گام فاکتورها، لغو سفارش و برگشت موجودی* |
+### 7.2. A02: Cryptographic Failures — جایگزینی MD5 با BCRYPT
 
-۹. تحلیل مهندسی پایگاه داده و نرمال‌سازی
+#### ذخیره امن رمز عبور
 
-طراحی بانک اطلاعاتی cbpos_db جهت ممانعت از ایجاد آنومالی‌های درج، حذف و ویرایش
-(Insert, Delete, Update Anomalies)، به طور کامل به سطح فرم سوم نرمال (3NF)
-رسانده شده است:
+```php
+$hashed_password = password_hash($raw_password, PASSWORD_BCRYPT);
+```
 
-1.  فرم اول نرمال (1NF): تمام فیلدها اتمیک بوده و هیچ ویژگی چندمقداری (نظیر
-    ذخیره آرایه‌ای ویژگی‌ها در یک فیلد) در جداول وجود ندارد. تنوع محصولات به
-    ردیف‌های جدول مستقل inventory تفکیک شده است.
-2.  فرم دوم نرمال (2NF): کلیه فیلدهای غیرکلید، وابستگی تابعی کامل به کلید اصلی
-    جدول دارند و هیچ‌گونه وابستگی جزئی (Partial Dependency) وجود ندارد.
-3.  فرم سوم نرمال (3NF): وابستگی‌های تعدیلی (Transitive Dependency) میان فیلدهای
-    غیرکلیدی حذف گردیده و مشخصاتی نظیر دسته‌بندی و نشان تجاری از جدول محصول
-    تفکیک و به جداول مستقل با ارتباط کلید خارجی متصل شده‌اند.
+#### اعتبارسنجی امن هنگام ورود
 
-۱۰. ارزیابی نهایی و چشم‌انداز توسعه آتی
+```php
+if (password_verify($input_password, $hashed_password)) {
+    // authentication successful
+}
+```
 
-سامانه CBPOS در بستر پژوهشی و عملیاتی دانشکده فنی و حرفه‌ای شهید چمران رشت،
-نشان‌دهنده یک چرخه کامل از تحلیل نیازها، بازمهندسی نرم‌افزار، استقرار در محیط
-محلی آپاچی و ارزیابی شواهد‌محور اصول ایمنی نرم‌افزار است.
+---
 
-برنامه‌های توسعه در فازهای آتی:
+### 7.3. A07: Identification and Authentication Failures — امنیت نشست
 
-  - توسعه واسط‌های برنامه‌نویسی نرم‌افزار (RESTful API): جهت پیاده‌سازی
-    اپلیکیشن‌های موبایل بومی کلاینت بر پایه Flutter.
-  - اتصال به شبکه پرداخت شاپرک: راه‌اندازی درگاه‌های پرداخت اینترنتی آنلاین
-    مستقیم شتابی و واسط.
-  - موتور هوشمند پیشنهاد کالا: به‌کارگیری الگوریتم‌های یادگیری ماشین جهت تحلیل
-    سلایق خریداران و پیشنهاد محصولات پوستی مکمل.
+اقدامات انجام‌شده/پیشنهادشده:
 
-پایان گزارش و مستندات فنی پروژه کارشناسی مهندسی نرم‌افزار
-دانشکده فنی و حرفه‌ای شهید چمران رشت - پاییز ۱۴۰۵
-دانشجو: امیرعلی صالح پور | استاد راهنما: جناب استاد عباس حیدری پاشاکی
+- فراخوانی `session_regenerate_id(true)` پس از ورود موفق
+- استفاده از توکن CSRF در فرم‌های حساس
+- تعیین کوکی نشست با ویژگی‌های `HttpOnly` و `SameSite`
+- محدودسازی دسترسی صفحات ادمین به نقش کاربری مناسب
+
+---
+
+### 7.4. A05/A08 — امنیت آپلود فایل
+
+در ماژول بارگذاری تصاویر محصولات:
+
+- بررسی پسوند مجاز
+- بررسی MIME Type واقعی فایل
+- محدودسازی حجم فایل
+- تولید نام یکتا برای فایل
+- غیرفعال‌سازی اجرای PHP در پوشه `uploads/`
+
+---
+
+### 7.5. کنترل همزمانی موجودی (Race Condition Mitigation)
+
+برای جلوگیری از فروش بیش از موجودی در درخواست‌های همزمان:
+
+- شروع تراکنش پایگاه داده
+- خواندن موجودی با قفل ردیف (`SELECT ... FOR UPDATE`)
+- کسر موجودی فقط در صورت کافی بودن انبار
+- Rollback در صورت خطا
+- Commit فقط پس از موفقیت کامل عملیات
+
+---
+
+## 8. گالری تصاویر محیط برنامه
+
+> 📷 پس از اجرای پروژه، اسکرین‌شات‌های زیر را در مسیر `docs/screenshots/` قرار دهید.
+
+### 8.1. محیط کاربری / فروشگاه آنلاین
+
+| نمایه کاتالوگ فروشگاه | سبد خرید مشتری |
+|:---:|:---:|
+| ![کاتالوگ محصولات](docs/screenshots/client-catalog.png) | ![سبد خرید](docs/screenshots/client-cart.png) |
+| *مرور محصولات، برندها و دسته‌بندی‌ها* | *مشاهده اقلام انتخابی و جمع کل* |
+
+| صفحه تسویه حساب | تاریخچه سفارش‌های مشتری |
+|:---:|:---:|
+| ![تسویه حساب](docs/screenshots/client-checkout.png) | ![سفارش‌های مشتری](docs/screenshots/client-orders.png) |
+| *وارد کردن آدرس و ثبت نهایی سفارش* | *مشاهده وضعیت سفارش‌ها* |
+
+---
+
+### 8.2. محیط مدیریت / Admin Panel
+
+| داشبورد مدیریتی | مدیریت محصولات |
+|:---:|:---:|
+| ![داشبورد ادمین](docs/screenshots/admin-dashboard.png) | ![مدیریت محصولات](docs/screenshots/admin-products.png) |
+| *نمایش شاخص‌های فروش و موجودی* | *تعریف کالا، برند و دسته‌بندی* |
+
+| مدیریت انبار | مدیریت سفارش‌ها |
+|:---:|:---:|
+| ![مدیریت انبار](docs/screenshots/admin-inventory.png) | ![مدیریت سفارش‌ها](docs/screenshots/admin-orders.png) |
+| *Stock In / Stock Out و کنترل موجودی* | *تغییر وضعیت سفارش و پیگیری فرآیند* |
+
+---
+
+## 9. محدودیت‌ها، چالش‌ها و چشم‌انداز توسعه آتی
+
+برای ارزیابی علمی و صادقانه پروژه، محدودیت‌های نسخه فعلی نیز باید شفاف بیان شوند.
+
+### 9.1. محدودیت‌های نسخه فعلی
+
+- اجرای پروژه بر بستر محلی XAMPP است و هنوز روی هاست واقعی/سرور تولیدی استقرار نیافته است.
+- ماژول پرداخت به‌صورت داخلی/شبیه‌سازی‌شده است و به درگاه بانکی واقعی متصل نیست.
+- تست بار و همزمانی بالا به‌صورت صنعتی انجام نشده است؛ اگرچه منطق تراکنش و قفل ردیف برای کاهش Race Condition لحاظ شده است.
+- پوشش تست خودکار (Unit Test / Integration Test) کامل نیست.
+- رابط کاربری موبایل کاملاً Responsive در سطح اپلیکیشن نative نیست.
+
+### 9.2. چشم‌انداز توسعه آتی
+
+1. **توسعه RESTful API**  
+   جداسازی کامل Backend از Frontend برای امکان توسعه اپلیکیشن موبایل با Flutter یا React Native.
+
+2. **اتصال به درگاه پرداخت واقعی**  
+   پیاده‌سازی ماژول پرداخت سازگار با درگاه‌های بانکی/واسط‌های پرداخت ایرانی.
+
+3. **سیستم پیشنهاد هوشمند محصول**  
+   استفاده از الگوریتم‌های پیشنهاددهنده بر اساس خریدهای قبلی، دسته‌بندی و رفتار کاربران.
+
+4. **گزارش‌گیری پیشرفته مالی و انبار**  
+   افزودن نمودارهای فروش، کالاهای پرفروش، نرخ مرجوعی و تحلیل موجودی.
+
+5. **بهبود امنیت و انطباق بیشتر با OWASP ASVS**  
+   افزودن Rate Limiting، لاگینگ امن، مدیریت بهتر خطاها و تست نفوذ محدود.
+
+---
+
+## 10. نتیجه‌گیری
+
+پروژه CBPOS در قالب یک کارشناسی ناپیوسته نرم‌افزار، صرفاً یک فروشگاه آنلاین ساده نیست؛ بلکه یک تمرین جامع در زمینه **مهندسی معکوس، بازمهندسی نرم‌افزار، طراحی شیءگرا، امنیت اپلیکیشن‌های وب و مستندسازی مهندسی نرم‌افزار** است.  
+نقطه قوت اصلی این پروژه، تبدیل یک کد پایه آموزشی به سیستمی است که:
+
+- ساختار داده‌ای مشخص‌تری دارد،
+- ریسک‌های امنیتی مهم آن شناسایی و کاهش یافته‌اند،
+- فرآیندهای کلیدی مانند احراز هویت، ثبت سفارش و مدیریت موجودی با دیاگرام مستند شده‌اند،
+- و برای دفاع دانشگاهی قابل توضیح، قابل اجرا و قابل ارزیابی است.
+
+---
+
+## 11. منابع و ارجاعات
+
+- [GitHub Repository — Silent-Galaxy/cbpos](https://github.com/Silent-Galaxy/cbpos)
+- [SourceCodester — Cosmetics and Beauty Product Online Store (PHP/OOP)](https://www.sourcecodester.com/php/15181/cosmetics-and-beauty-product-online-store-phpoop-free-source-code.html)
+- [PlantUML Web Editor](https://editor.plantuml.com/)
+- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
+- [PHP Manual — password_hash()](https://www.php.net/manual/en/function.password-hash.php)
+- [PHP Manual — mysqli::prepare()](https://www.php.net/manual/en/mysqli.prepare.php)
+- [PHP Manual — session_regenerate_id()](https://www.php.net/manual/en/function.session-regenerate-id.php)
+- [Apache Friends — XAMPP](https://www.apachefriends.org/)
+
+---
+
+## 🎓 اطلاعات تکمیلی تحویل پروژه
+
+| مورد | توضیح |
+|:---|:---|
+| **دانشجو** | امیرعلی صالح‌پور |
+| **استاد راهنما** | جناب آقای عباس حیدری‌پاشاکی |
+| **رشته / مقطع** | کارشناسی ناپیوسته مهندسی حرفه‌ای کامپیوتر — نرم‌افزار |
+| **دانشگاه** | دانشکده فنی و حرفه‌ای شهید چمران رشت (روزانه) |
+| **تاریخ پیگیری / ارزیابی** | آبان ۱۴۰ (1405/08) |
+| **نوع پروژه** | بازمهندسی و توسعه سامانه فروشگاهی تحت وب |
+| **بستر اجرای آموزش‌دیده** | XAMPP محلی |
+
+---
+
+> This project is prepared as an academic bachelor-level software engineering deliverable.  
+> The initial core was derived from an open educational source and then analyzed, refactored, secured, and documented according to software engineering principles.
